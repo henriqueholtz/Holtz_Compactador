@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{93153C25-F001-43B6-B02C-83A37C46B84D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Holtz_Compacta</RootNamespace>
+    <AssemblyName>Holtz_Compacta</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetZip, Version=1.13.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetZip.1.13.8\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Nevron.Nov.Barcode, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Chart, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Diagram, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Grid, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Host.WinForm, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Presentation, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Schedule, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.Text, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="Nevron.Nov.WinFormControls, Version=20.1.28.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vip.Notification, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Vip.Notification.1.0.4\lib\net45\Vip.Notification.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compactador.cs" />
+    <Compile Include="Conexao_Banco\Conexao.cs">
+      <DependentUpon>Conexao.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Conexao_Banco\Conexao.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conexao.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompactador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompactador.Designer.cs">
+      <DependentUpon>FrmCompactador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMensagem.Designer.cs">
+      <DependentUpon>FrmMensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadConfig.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCompactador.resx">
+      <DependentUpon>FrmCompactador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMensagem.resx">
+      <DependentUpon>FrmMensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Conexao_Banco\Conexao.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Conexao.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Conexao_Banco\Conexao.dbml.layout">
+      <DependentUpon>Conexao.dbml</DependentUpon>
+    </None>
+    <None Include="Config.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\savedisk_floppydisk_guardar_1543.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graphite_stripped_folder_developer_14229.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
