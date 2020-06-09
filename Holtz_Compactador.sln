@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holtz_Compacta", "Holtz_Compacta.csproj", "{93153C25-F001-43B6-B02C-83A37C46B84D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holtz_Compactador", "Holtz_Compactador.csproj", "{93153C25-F001-43B6-B02C-83A37C46B84D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

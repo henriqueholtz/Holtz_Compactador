@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{93153C25-F001-43B6-B02C-83A37C46B84D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Holtz_Compacta</RootNamespace>
-    <AssemblyName>Holtz_Compacta</AssemblyName>
+    <RootNamespace>Holtz_Compactador</RootNamespace>
+    <AssemblyName>Holtz_Compactador</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -66,14 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compactador.cs" />
-    <Compile Include="Conexao_Banco\Conexao.cs">
-      <DependentUpon>Conexao.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Conexao_Banco\Conexao.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Conexao.dbml</DependentUpon>
-    </Compile>
     <Compile Include="FrmCompactador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,14 +97,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Conexao_Banco\Conexao.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Conexao.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Conexao_Banco\Conexao.dbml.layout">
-      <DependentUpon>Conexao.dbml</DependentUpon>
-    </None>
     <None Include="Config.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -129,16 +113,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\savedisk_floppydisk_guardar_1543.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\graphite_stripped_folder_developer_14229.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="README.txt" />
+    <None Include="Resources\graphite_stripped_folder_developer_14229.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

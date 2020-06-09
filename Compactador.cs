@@ -13,11 +13,11 @@ namespace Holtz_Compacta
 {
     public class Compactador
     {
-        public void Compactar(string ParCaminhoOrigem,string ParCaminhoDestino, string ParNomeArquivo,string ParTipo,string ParCaminhoTemp)
+        public void Compactar(string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo, string ParTipo, string ParCaminhoTemp)
         {
-            ParCaminhoOrigem  += @"\";
+            ParCaminhoOrigem += @"\";
             ParCaminhoDestino += @"\";
-            ParCaminhoTemp   += @"\";
+            ParCaminhoTemp += @"\";
             EsvaziarPastaTemp(ParCaminhoTemp);
             string CaminhoZip = ParCaminhoDestino + ParNomeArquivo + ParTipo.ToLower();
 
@@ -30,7 +30,7 @@ namespace Holtz_Compacta
             EsvaziarPastaTemp(ParCaminhoTemp);
         }
 
-        private void Copiar(string ParCaminhoOrigem,string ParTemp)
+        private void Copiar(string ParCaminhoOrigem, string ParTemp)
         {
             if (Directory.Exists(ParCaminhoOrigem))
             {
@@ -69,7 +69,7 @@ namespace Holtz_Compacta
             //deletando pastas
             foreach (string sourceSubFolder in Directory.GetDirectories(CaminhoTemp, "*", SearchOption.AllDirectories))
             {
-                if (Directory.Exists(sourceSubFolder)) { Directory.Delete(sourceSubFolder,true); }
+                if (Directory.Exists(sourceSubFolder)) { Directory.Delete(sourceSubFolder, true); }
             }
 
             //deletando arquivos

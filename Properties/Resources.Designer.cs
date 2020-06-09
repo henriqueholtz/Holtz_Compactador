@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Holtz_Compacta.Properties {
+namespace Holtz_Compactador.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Holtz_Compacta.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Holtz_Compacta.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Holtz_Compactador.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,16 +66,6 @@ namespace Holtz_Compacta.Properties {
         internal static System.Drawing.Bitmap graphite_stripped_folder_developer_14229 {
             get {
                 object obj = ResourceManager.GetObject("graphite_stripped_folder_developer_14229", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap savedisk_floppydisk_guardar_1543 {
-            get {
-                object obj = ResourceManager.GetObject("savedisk_floppydisk_guardar_1543", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

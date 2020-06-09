@@ -1,0 +1,15 @@
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compacta.FrmCompactador.resources
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.FrmMensagem.resources
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.Properties.Resources.resources
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.csproj.GenerateResource.cache
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.csproj.CoreCompileInputs.cache
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\Holtz_Compactador.exe.config
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\Holtz_Compactador.exe
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\Holtz_Compactador.pdb
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\DotNetZip.dll
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\Vip.Notification.dll
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\DotNetZip.pdb
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\bin\Debug\DotNetZip.xml
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.csproj.CopyComplete
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.exe
+D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.pdb

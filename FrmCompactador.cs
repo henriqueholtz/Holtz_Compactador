@@ -14,6 +14,8 @@ using System.Data.SqlTypes;
 using System.IO.Compression;
 using Ionic.Zip;
 using System.Net.Configuration;
+using Holtz_Compactador;
+using Nevron.Nov.Diagram.Shapes;
 
 namespace Holtz_Compacta
 {
@@ -128,7 +130,6 @@ namespace Holtz_Compacta
 
         private void label6_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Aqui irá explicar como funciona.");
             FrmMensagem msg = new FrmMensagem();
             msg.ShowDialog();
         }

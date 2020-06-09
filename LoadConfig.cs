@@ -75,7 +75,7 @@ namespace Holtz_Compacta
                         NomeArquivo = String.Format("{1}", key, value);
                         break;
                     case "Tipo":
-                        Tipo = String.Format("{1}",key, value);
+                        Tipo = String.Format("{1}", key, value);
                         break;
                     case "CaminhoTemp":
                         CaminhoTemp = String.Format("{1}", key, value);
@@ -91,18 +91,18 @@ namespace Holtz_Compacta
 
             //serialize vai por aspas duplas :   "valor"
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            string ParCaminhoOrigem  = serializer.Serialize(CaminhoOrigem);
+            string ParCaminhoOrigem = serializer.Serialize(CaminhoOrigem);
             string ParCaminhoDestino = serializer.Serialize(CaminhoDestino);
-            string ParCaminhoTemp    = serializer.Serialize(CaminhoTemp);
-            string ParNomeArquivo    = serializer.Serialize(NomeArquivo);
-            string ParTipo           = serializer.Serialize(Tipo);
+            string ParCaminhoTemp = serializer.Serialize(CaminhoTemp);
+            string ParNomeArquivo = serializer.Serialize(NomeArquivo);
+            string ParTipo = serializer.Serialize(Tipo);
 
-            string json = "{" + 
-                "\"Tipo\": "           + ParTipo           + ", " +
-                "\"CaminhoOrigem\": "  + ParCaminhoOrigem  + ", " +
+            string json = "{" +
+                "\"Tipo\": " + ParTipo + ", " +
+                "\"CaminhoOrigem\": " + ParCaminhoOrigem + ", " +
                 "\"CaminhoDestino\": " + ParCaminhoDestino + ", " +
-                "\"NomeArquivo\": "    + ParNomeArquivo    + ", " +
-                "\"CaminhoTemp\": "    + ParCaminhoTemp +
+                "\"NomeArquivo\": " + ParNomeArquivo + ", " +
+                "\"CaminhoTemp\": " + ParCaminhoTemp +
                 "}";
 
             File.WriteAllText(caminhoArquivo, json); //Grava no arquivo físico

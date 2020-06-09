@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Holtz_Compacta
+namespace Holtz_Compactador
 {
     public partial class FrmMensagem : Form
     {

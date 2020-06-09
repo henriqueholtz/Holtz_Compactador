@@ -38,22 +38,22 @@
             this.BtnGerar = new System.Windows.Forms.Button();
             this.comboTipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
-            this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
             this.nProgressBarControl1 = new Nevron.Nov.WinFormControls.NProgressBarControl();
             this.BtnGerarSemGravar = new System.Windows.Forms.Button();
             this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCaminhoTemp = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.imgConfigCaminhoTemp = new System.Windows.Forms.PictureBox();
             this.checkSalvarTemp = new System.Windows.Forms.CheckBox();
             this.checkSalvarOrigem = new System.Windows.Forms.CheckBox();
             this.checkSalvarDestino = new System.Windows.Forms.CheckBox();
             this.SobrePastaTemporaria = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).BeginInit();
+            this.imgConfigCaminhoTemp = new System.Windows.Forms.PictureBox();
+            this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
+            this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtCaminhoOrigem
@@ -146,30 +146,6 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Tipo";
             // 
-            // imgConfigCaminhoDestino
-            // 
-            this.imgConfigCaminhoDestino.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgConfigCaminhoDestino.Image = global::Holtz_Compacta.Properties.Resources.graphite_stripped_folder_developer_14229;
-            this.imgConfigCaminhoDestino.Location = new System.Drawing.Point(111, 206);
-            this.imgConfigCaminhoDestino.Name = "imgConfigCaminhoDestino";
-            this.imgConfigCaminhoDestino.Size = new System.Drawing.Size(38, 29);
-            this.imgConfigCaminhoDestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgConfigCaminhoDestino.TabIndex = 13;
-            this.imgConfigCaminhoDestino.TabStop = false;
-            this.imgConfigCaminhoDestino.Click += new System.EventHandler(this.imgConfigCaminhoDestino_Click);
-            // 
-            // imgConfigCaminhoOrigem
-            // 
-            this.imgConfigCaminhoOrigem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgConfigCaminhoOrigem.Image = global::Holtz_Compacta.Properties.Resources.graphite_stripped_folder_developer_14229;
-            this.imgConfigCaminhoOrigem.Location = new System.Drawing.Point(111, 107);
-            this.imgConfigCaminhoOrigem.Name = "imgConfigCaminhoOrigem";
-            this.imgConfigCaminhoOrigem.Size = new System.Drawing.Size(38, 29);
-            this.imgConfigCaminhoOrigem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgConfigCaminhoOrigem.TabIndex = 14;
-            this.imgConfigCaminhoOrigem.TabStop = false;
-            this.imgConfigCaminhoOrigem.Click += new System.EventHandler(this.imgConfigCaminhoOrigem_Click);
-            // 
             // nProgressBarControl1
             // 
             this.nProgressBarControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -226,18 +202,6 @@
             this.label6.Text = "Como Funciona ?";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // imgConfigCaminhoTemp
-            // 
-            this.imgConfigCaminhoTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgConfigCaminhoTemp.Image = global::Holtz_Compacta.Properties.Resources.graphite_stripped_folder_developer_14229;
-            this.imgConfigCaminhoTemp.Location = new System.Drawing.Point(111, 62);
-            this.imgConfigCaminhoTemp.Name = "imgConfigCaminhoTemp";
-            this.imgConfigCaminhoTemp.Size = new System.Drawing.Size(38, 29);
-            this.imgConfigCaminhoTemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgConfigCaminhoTemp.TabIndex = 20;
-            this.imgConfigCaminhoTemp.TabStop = false;
-            this.imgConfigCaminhoTemp.Click += new System.EventHandler(this.imgConfigCaminhoTemp_Click);
-            // 
             // checkSalvarTemp
             // 
             this.checkSalvarTemp.AutoSize = true;
@@ -280,6 +244,45 @@
             this.SobrePastaTemporaria.Text = "ATENÇÃO! Clique aqui.";
             this.SobrePastaTemporaria.Click += new System.EventHandler(this.SobrePastaTemporaria_Click);
             // 
+            // imgConfigCaminhoTemp
+            // 
+            this.imgConfigCaminhoTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgConfigCaminhoTemp.BackgroundImage = global::Holtz_Compactador.Properties.Resources.graphite_stripped_folder_developer_14229;
+            this.imgConfigCaminhoTemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgConfigCaminhoTemp.Location = new System.Drawing.Point(111, 62);
+            this.imgConfigCaminhoTemp.Name = "imgConfigCaminhoTemp";
+            this.imgConfigCaminhoTemp.Size = new System.Drawing.Size(38, 29);
+            this.imgConfigCaminhoTemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgConfigCaminhoTemp.TabIndex = 20;
+            this.imgConfigCaminhoTemp.TabStop = false;
+            this.imgConfigCaminhoTemp.Click += new System.EventHandler(this.imgConfigCaminhoTemp_Click);
+            // 
+            // imgConfigCaminhoOrigem
+            // 
+            this.imgConfigCaminhoOrigem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgConfigCaminhoOrigem.BackgroundImage = global::Holtz_Compactador.Properties.Resources.graphite_stripped_folder_developer_14229;
+            this.imgConfigCaminhoOrigem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgConfigCaminhoOrigem.Location = new System.Drawing.Point(111, 107);
+            this.imgConfigCaminhoOrigem.Name = "imgConfigCaminhoOrigem";
+            this.imgConfigCaminhoOrigem.Size = new System.Drawing.Size(38, 29);
+            this.imgConfigCaminhoOrigem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgConfigCaminhoOrigem.TabIndex = 14;
+            this.imgConfigCaminhoOrigem.TabStop = false;
+            this.imgConfigCaminhoOrigem.Click += new System.EventHandler(this.imgConfigCaminhoOrigem_Click);
+            // 
+            // imgConfigCaminhoDestino
+            // 
+            this.imgConfigCaminhoDestino.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgConfigCaminhoDestino.BackgroundImage = global::Holtz_Compactador.Properties.Resources.graphite_stripped_folder_developer_14229;
+            this.imgConfigCaminhoDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgConfigCaminhoDestino.Location = new System.Drawing.Point(111, 206);
+            this.imgConfigCaminhoDestino.Name = "imgConfigCaminhoDestino";
+            this.imgConfigCaminhoDestino.Size = new System.Drawing.Size(38, 29);
+            this.imgConfigCaminhoDestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgConfigCaminhoDestino.TabIndex = 13;
+            this.imgConfigCaminhoDestino.TabStop = false;
+            this.imgConfigCaminhoDestino.Click += new System.EventHandler(this.imgConfigCaminhoDestino_Click);
+            // 
             // FrmCompactador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,9 +315,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "COMPACTADOR HOLTZ";
             this.Load += new System.EventHandler(this.FrmCompactador_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

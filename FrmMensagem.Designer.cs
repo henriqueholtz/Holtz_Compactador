@@ -1,4 +1,4 @@
-﻿namespace Holtz_Compacta
+﻿namespace Holtz_Compactador
 {
     partial class FrmMensagem
     {
