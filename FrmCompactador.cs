@@ -124,13 +124,19 @@ namespace Holtz_Compacta
             }
             else
             {
+                if (!Directory.Exists(ParCaminhoDestino)) { Directory.CreateDirectory(ParCaminhoDestino); }
+                if (!Directory.Exists(ParCaminhoTemp)) { Directory.CreateDirectory(ParCaminhoTemp); }
+                LoadExcecoes.LimparExtensoesN();
+                LoadExcecoes.LimparPastasN();
+                LoadExcecoes.CarregaExtensoesN();
+                LoadExcecoes.CarregaPastasN();
                 Alert.ShowSucess("Pronto para compactar");
             }
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            FrmMensagem msg = new FrmMensagem();
+            FrmSobre msg = new FrmSobre();
             msg.ShowDialog();
         }
 
@@ -143,6 +149,12 @@ namespace Holtz_Compacta
         private void SobrePastaTemporaria_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Esta pasta é ESVAZIADA, depois usada para copiar os aqruivos antes de compactar,e depois é ESVAZIADA novamente! ");
+        }
+
+        private void extensõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmExcecoes exc = new FrmExcecoes();
+            exc.ShowDialog();
         }
     }
 }

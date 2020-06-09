@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Holtz_Compactador
 {
-    public partial class FrmMensagem : Form
+    public partial class FrmSobre : Form
     {
-        public FrmMensagem()
+        public FrmSobre()
         {
             InitializeComponent();
         }

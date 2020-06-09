@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.Compression;
 using Vip.Notification;
+using Holtz_Compactador;
+using System.Threading;
 
 namespace Holtz_Compacta
 {
@@ -45,20 +47,27 @@ namespace Holtz_Compacta
                 {
                     string destinationFile = sourceFile.Replace(ParCaminhoOrigem, ParTemp);
                     sourceFile.ToLower(); //para minusculo
+                    File.Copy(sourceFile, destinationFile, true); 
+                }
 
-                    if ((!sourceFile.Contains(".cs") || sourceFile.Contains(".css")) && !sourceFile.Contains(".config") && !sourceFile.Contains(".002") && !sourceFile.Contains(".rsp")
-                        && !sourceFile.Contains(".sql") && !sourceFile.Contains(".xls") && !sourceFile.Contains(".pdf") && !sourceFile.Contains(".xlsx"))
+                //deletar aquivos com extensões não desejadas
+                foreach (string sourceFile in Directory.GetFiles(ParTemp, "*", SearchOption.AllDirectories))
+                {
+                    foreach (string item in LoadExcecoes.ParExtensoesN)
                     {
-                        File.Copy(sourceFile, destinationFile, true);
+                        if (sourceFile.Contains(item))
+                        {
+                            File.Delete(sourceFile);
+                        }
                     }
                 }
 
-                //deletar pastas desejadas
+                //deletar pastas não-desejadas
                 foreach (string sourceSubFolder in Directory.GetDirectories(ParTemp, "*", SearchOption.TopDirectoryOnly))
                 {
-                    if (sourceSubFolder.ToLower().Contains("publictempstorage") || sourceSubFolder.ToLower().Contains("privatetempstorage"))
+                    foreach (string item in LoadExcecoes.ParPastasN)
                     {
-                        Directory.Delete(sourceSubFolder, true);
+                        if (sourceSubFolder.ToLower().Contains(item)) { Directory.Delete(sourceSubFolder, true); }
                     }
                 }
             }

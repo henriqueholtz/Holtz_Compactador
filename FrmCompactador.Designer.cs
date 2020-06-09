@@ -51,9 +51,12 @@
             this.imgConfigCaminhoTemp = new System.Windows.Forms.PictureBox();
             this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
             this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.extensõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TxtCaminhoOrigem
@@ -283,6 +286,23 @@
             this.imgConfigCaminhoDestino.TabStop = false;
             this.imgConfigCaminhoDestino.Click += new System.EventHandler(this.imgConfigCaminhoDestino_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.extensõesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(535, 24);
+            this.menuStrip1.TabIndex = 25;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // extensõesToolStripMenuItem
+            // 
+            this.extensõesToolStripMenuItem.Name = "extensõesToolStripMenuItem";
+            this.extensõesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.extensõesToolStripMenuItem.Text = "Exceções";
+            this.extensõesToolStripMenuItem.Click += new System.EventHandler(this.extensõesToolStripMenuItem_Click);
+            // 
             // FrmCompactador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,7 +329,9 @@
             this.Controls.Add(this.txtCaminhoDestino);
             this.Controls.Add(this.txtNomeArquivo);
             this.Controls.Add(this.TxtCaminhoOrigem);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FrmCompactador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -318,6 +340,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,6 +371,8 @@
         private System.Windows.Forms.CheckBox checkSalvarOrigem;
         private System.Windows.Forms.CheckBox checkSalvarDestino;
         private System.Windows.Forms.Label SobrePastaTemporaria;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem extensõesToolStripMenuItem;
     }
 }
 

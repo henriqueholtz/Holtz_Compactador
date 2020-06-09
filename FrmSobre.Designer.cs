@@ -1,6 +1,6 @@
 ﻿namespace Holtz_Compactador
 {
-    partial class FrmMensagem
+    partial class FrmSobre
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMensagem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSobre));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -148,10 +148,10 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(48, 154);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(521, 13);
+            this.label9.Size = new System.Drawing.Size(438, 13);
             this.label9.TabIndex = 9;
-            this.label9.Text = "As extensões e pastas  não-desejadas são armazenadas em um pequeno banco de dados" +
-    " (SQLServer 2014)";
+            this.label9.Text = "As extensões e pastas  não-desejadas são armazenadas em arquivos json, separadame" +
+    "nte.";
             // 
             // label10
             // 
@@ -162,7 +162,7 @@
             this.label10.TabIndex = 10;
             this.label10.Text = "Junho/2020";
             // 
-            // FrmMensagem
+            // FrmSobre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -180,7 +180,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FrmMensagem";
+            this.Name = "FrmSobre";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SOBRE O COMPACTADOR HOLTZ";
             this.ResumeLayout(false);
