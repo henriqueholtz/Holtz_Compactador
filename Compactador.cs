@@ -9,7 +9,6 @@ using System.IO;
 using System.IO.Compression;
 using Vip.Notification;
 using Holtz_Compactador;
-using System.Threading;
 
 namespace Holtz_Compacta
 {
@@ -17,6 +16,7 @@ namespace Holtz_Compacta
     {
         public void Compactar(string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo, string ParTipo, string ParCaminhoTemp)
         {
+            
             ParCaminhoOrigem += @"\";
             ParCaminhoDestino += @"\";
             ParCaminhoTemp += @"\";
@@ -36,6 +36,7 @@ namespace Holtz_Compacta
         {
             if (Directory.Exists(ParCaminhoOrigem))
             {
+                
                 // Copy folder structure
                 foreach (string sourceSubFolder in Directory.GetDirectories(ParCaminhoOrigem, "*", SearchOption.AllDirectories))
                 {

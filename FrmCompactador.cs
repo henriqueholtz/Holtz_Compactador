@@ -21,6 +21,7 @@ namespace Holtz_Compacta
 {
     public partial class FrmCompactador : Form
     {
+        BackgroundWorker worker = new BackgroundWorker();
         public FrmCompactador()
         {
             InitializeComponent();
@@ -41,14 +42,12 @@ namespace Holtz_Compacta
 
         private void imgConfigCaminhoDestino_Click(object sender, EventArgs e)
         {
-            //folderDialogDestino.ShowDialog();
             if (folderDialog.ShowDialog() != DialogResult.OK) return;
             txtCaminhoDestino.Text = folderDialog.SelectedPath.ToString();
         }
 
         private void imgConfigCaminhoOrigem_Click(object sender, EventArgs e)
         {
-            //folderDialogOrigem.ShowDialog();
             if (folderDialog.ShowDialog() != DialogResult.OK) return;
             TxtCaminhoOrigem.Text = folderDialog.SelectedPath.ToString();
         }
@@ -66,11 +65,12 @@ namespace Holtz_Compacta
             LoadConfig.GravaJson();
 
             Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text,txtCaminhoTemp.Text);
-            //ZipFile.CreateFromDirectory(Temp, CaminhoZip);
+            
             if (LoadConfig.ParIsErro == false)
             {
-                Compactador varCompactador = new Compactador();
-                varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                //Compactador varCompactador = new Compactador();
+                //varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                worker.RunWorkerAsync();
             }
 
         }

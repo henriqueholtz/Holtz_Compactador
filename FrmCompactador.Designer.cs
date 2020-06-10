@@ -38,7 +38,6 @@
             this.BtnGerar = new System.Windows.Forms.Button();
             this.comboTipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.nProgressBarControl1 = new Nevron.Nov.WinFormControls.NProgressBarControl();
             this.BtnGerarSemGravar = new System.Windows.Forms.Button();
             this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.label5 = new System.Windows.Forms.Label();
@@ -119,7 +118,7 @@
             this.BtnGerar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnGerar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGerar.Location = new System.Drawing.Point(288, 274);
+            this.BtnGerar.Location = new System.Drawing.Point(288, 279);
             this.BtnGerar.Name = "BtnGerar";
             this.BtnGerar.Size = new System.Drawing.Size(197, 65);
             this.BtnGerar.TabIndex = 7;
@@ -149,23 +148,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Tipo";
             // 
-            // nProgressBarControl1
-            // 
-            this.nProgressBarControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nProgressBarControl1.AutoSize = false;
-            this.nProgressBarControl1.DesignTimeState = null;
-            this.nProgressBarControl1.Location = new System.Drawing.Point(189, 239);
-            this.nProgressBarControl1.Name = "nProgressBarControl1";
-            this.nProgressBarControl1.Size = new System.Drawing.Size(163, 23);
-            this.nProgressBarControl1.TabIndex = 15;
-            // 
             // BtnGerarSemGravar
             // 
             this.BtnGerarSemGravar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnGerarSemGravar.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnGerarSemGravar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGerarSemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGerarSemGravar.Location = new System.Drawing.Point(58, 274);
+            this.BtnGerarSemGravar.Location = new System.Drawing.Point(58, 279);
             this.BtnGerarSemGravar.Name = "BtnGerarSemGravar";
             this.BtnGerarSemGravar.Size = new System.Drawing.Size(184, 65);
             this.BtnGerarSemGravar.TabIndex = 16;
@@ -317,7 +306,6 @@
             this.Controls.Add(this.txtCaminhoTemp);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnGerarSemGravar);
-            this.Controls.Add(this.nProgressBarControl1);
             this.Controls.Add(this.imgConfigCaminhoOrigem);
             this.Controls.Add(this.imgConfigCaminhoDestino);
             this.Controls.Add(this.label4);
@@ -360,7 +348,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox imgConfigCaminhoDestino;
         private System.Windows.Forms.PictureBox imgConfigCaminhoOrigem;
-        private Nevron.Nov.WinFormControls.NProgressBarControl nProgressBarControl1;
         private System.Windows.Forms.Button BtnGerarSemGravar;
         private System.Windows.Forms.FolderBrowserDialog folderDialog;
         private System.Windows.Forms.Label label5;

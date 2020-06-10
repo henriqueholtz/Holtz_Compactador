@@ -14,4 +14,3 @@ D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Comp
 D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.pdb
 D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.FrmExcecoes.resources
 D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.FrmSobre.resources
-D:\Visual Studio\GitHub\Holtz_Compactador\Holtz_Compactador\obj\Debug\Holtz_Compactador.csprojAssemblyReference.cache
