@@ -47,9 +47,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(140, 22);
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(515, 13);
+            this.label1.Size = new System.Drawing.Size(741, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Aqui você pode configurar extensões e pastas PARA NÃO COPIAR NO ARQUIVO FINAL (CO" +
     "MPACTADO)";
@@ -126,6 +127,7 @@
             // 
             // BtnGravar
             // 
+            this.BtnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGravar.Location = new System.Drawing.Point(247, 315);
             this.BtnGravar.Name = "BtnGravar";
@@ -137,11 +139,12 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(301, 384);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(247, 384);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 42);
+            this.button2.Size = new System.Drawing.Size(202, 41);
             this.button2.TabIndex = 10;
-            this.button2.Text = "FECHAR";
+            this.button2.Text = "FECHAR SEM SALVAR";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

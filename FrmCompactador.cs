@@ -21,7 +21,6 @@ namespace Holtz_Compacta
 {
     public partial class FrmCompactador : Form
     {
-        BackgroundWorker worker = new BackgroundWorker();
         public FrmCompactador()
         {
             InitializeComponent();
@@ -55,7 +54,6 @@ namespace Holtz_Compacta
         private void BtnGerar_Click(object sender, EventArgs e)
         {
             //Salva na classe, e de lá com o método 'GravaJson()' salva no arquivo físico (Config.json);
-            
             LoadConfig.ParTipo           = comboTipo.SelectedItem.ToString();
             if (checkSalvarOrigem.Checked == true)  { LoadConfig.ParCaminhoOrigem = TxtCaminhoOrigem.Text; }
             if (checkSalvarDestino.Checked == true) { LoadConfig.ParCaminhoDestino = txtCaminhoDestino.Text; }
@@ -68,9 +66,8 @@ namespace Holtz_Compacta
             
             if (LoadConfig.ParIsErro == false)
             {
-                //Compactador varCompactador = new Compactador();
-                //varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
-                worker.RunWorkerAsync();
+                Compactador varCompactador = new Compactador();
+                varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
             }
 
         }

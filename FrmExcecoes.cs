@@ -90,8 +90,24 @@ namespace Holtz_Compactador
 
         private void BtnRemoverExtensao_Click(object sender, EventArgs e)
         {
+            int index = listExtensoes.SelectedIndex;
             listExtensoes.Items.Remove(listExtensoes.SelectedItem);
-            BtnRemoverExtensao.Enabled = false;
+            if (listExtensoes.Items.Count > 0)
+            {
+                if (listExtensoes.Items.Count > index)
+                {
+                    listExtensoes.SelectedIndex = index;
+                }
+                else
+                {
+                    index -= 1;
+                    listExtensoes.SelectedIndex = index;
+                }
+            }
+            else
+            {
+                BtnRemoverExtensao.Enabled = false;
+            }
         }
 
         private void listExtensoes_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,8 +117,24 @@ namespace Holtz_Compactador
 
         private void BtnRemoverPasta_Click(object sender, EventArgs e)
         {
+            int index = listPastas.SelectedIndex;
             listPastas.Items.Remove(listPastas.SelectedItem);
-            BtnRemoverPasta.Enabled = false;
+            if (listPastas.Items.Count > 0)
+            {
+                if (listPastas.Items.Count > index)
+                {
+                    listPastas.SelectedIndex = index;
+                }
+                else
+                {
+                    index -= 1;
+                    listPastas.SelectedIndex = index;
+                }
+            }
+            else
+            {
+                BtnRemoverPasta.Enabled = false;
+            }
         }
 
         private void listPastas_SelectedIndexChanged(object sender, EventArgs e)

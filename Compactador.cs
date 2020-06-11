@@ -56,7 +56,8 @@ namespace Holtz_Compacta
                 {
                     foreach (string item in LoadExcecoes.ParExtensoesN)
                     {
-                        if (sourceFile.Contains(item))
+                        if (Path.GetExtension(sourceFile).ToLower() == item )
+                        //if (sourceFile.Contains(item))
                         {
                             File.Delete(sourceFile);
                         }
