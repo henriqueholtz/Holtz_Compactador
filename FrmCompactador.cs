@@ -69,12 +69,12 @@ namespace Holtz_Compacta
                 Compactador varCompactador = new Compactador();
                 varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
             }
-
+            BtnGerar.Enabled = true;
+            BtnGerarSemGravar.Enabled = true;
         }
 
         private void BtnGerarSemGravar_Click(object sender, EventArgs e)
         {
-            //if (comboTipo.SelectedItem.ToString() == ".RAR" || comboTipo.SelectedItem.ToString() == ".ZIP")
             Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text,txtCaminhoTemp.Text);
 
             if (LoadConfig.ParIsErro == false)
@@ -82,14 +82,18 @@ namespace Holtz_Compacta
                 Compactador varCompactador = new Compactador();
                 varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
             }
+            BtnGerar.Enabled = true;
+            BtnGerarSemGravar.Enabled = true;
 
         }
 
         private void Verifica(string ParTipo,string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo, string ParCaminhoTemp)
         {
+            BtnGerar.Enabled = false;
+            BtnGerarSemGravar.Enabled = false;
             LoadConfig.ParIsErro = false;
             string mensagem = String.Empty;
-            Alert.ShowInformation("Em desenvolvimento by: Henrique Holtz");
+            //Alert.ShowInformation("Em desenvolvimento by: Henrique Holtz");
             if (ParCaminhoOrigem.Length <= 3)
             {
                 LoadConfig.ParIsErro = true;
@@ -114,6 +118,11 @@ namespace Holtz_Compacta
             {
                 LoadConfig.ParIsErro = true;
                 mensagem += " O Nome do arquivo não pode ser vazio.";
+            }
+            if (File.Exists(ParCaminhoDestino + @"\" +  ParNomeArquivo + ParTipo.ToLower()))
+            {
+                LoadConfig.ParIsErro = true;
+                mensagem += "Já existe um arquivo com o nome escolhido, e a mesma extensão.Exclua o arquivo ou escolha outro nome.";
             }
             if (LoadConfig.ParIsErro == true)
             {
