@@ -2,4 +2,4 @@
  
  Tarefas:
  - [x] Verificar exceções de extensões de forma correta.
- - [] Hoje o software copia e depois deleta conforme a lista de exceções. A lista de exceções deve ser verificada antes de copiar.
+ - [ ] Hoje o software copia e depois deleta conforme a lista de exceções. A lista de exceções deve ser verificada antes de copiar.
