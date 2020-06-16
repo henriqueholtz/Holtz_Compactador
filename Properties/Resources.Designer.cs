@@ -63,9 +63,49 @@ namespace Holtz_Compactador.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_file_9776 {
+            get {
+                object obj = ResourceManager.GetObject("folder_file_9776", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Folder_Open_26988 {
+            get {
+                object obj = ResourceManager.GetObject("Folder_Open_26988", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap graphite_stripped_folder_developer_14229 {
             get {
                 object obj = ResourceManager.GetObject("graphite_stripped_folder_developer_14229", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap open_256_icon_icons_com_76002 {
+            get {
+                object obj = ResourceManager.GetObject("open_256_icon-icons.com_76002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Smart_icon_icons_com_75247 {
+            get {
+                object obj = ResourceManager.GetObject("Smart_icon-icons.com_75247", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -47,48 +47,59 @@
             this.checkSalvarOrigem = new System.Windows.Forms.CheckBox();
             this.checkSalvarDestino = new System.Windows.Forms.CheckBox();
             this.SobrePastaTemporaria = new System.Windows.Forms.Label();
-            this.imgConfigCaminhoTemp = new System.Windows.Forms.PictureBox();
-            this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
-            this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.extensoesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkSalvarNomeArquivo = new System.Windows.Forms.CheckBox();
             this.checkSalvarTipo = new System.Windows.Forms.CheckBox();
+            this.imgOpenZip = new System.Windows.Forms.PictureBox();
+            this.imgOpenCaminhoDestino = new System.Windows.Forms.PictureBox();
+            this.imgOpenCaminhoOrigem = new System.Windows.Forms.PictureBox();
+            this.imgOpenPastaTemp = new System.Windows.Forms.PictureBox();
+            this.imgConfigCaminhoTemp = new System.Windows.Forms.PictureBox();
+            this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
+            this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenZip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenCaminhoDestino)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenCaminhoOrigem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenPastaTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TxtCaminhoOrigem
             // 
-            this.TxtCaminhoOrigem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxtCaminhoOrigem.Location = new System.Drawing.Point(155, 114);
+            this.TxtCaminhoOrigem.BackColor = System.Drawing.Color.Silver;
+            this.TxtCaminhoOrigem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtCaminhoOrigem.Location = new System.Drawing.Point(100, 126);
             this.TxtCaminhoOrigem.Name = "TxtCaminhoOrigem";
             this.TxtCaminhoOrigem.Size = new System.Drawing.Size(225, 20);
             this.TxtCaminhoOrigem.TabIndex = 0;
             // 
             // txtNomeArquivo
             // 
-            this.txtNomeArquivo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNomeArquivo.Location = new System.Drawing.Point(155, 165);
+            this.txtNomeArquivo.BackColor = System.Drawing.Color.Silver;
+            this.txtNomeArquivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomeArquivo.Location = new System.Drawing.Point(100, 177);
             this.txtNomeArquivo.Name = "txtNomeArquivo";
             this.txtNomeArquivo.Size = new System.Drawing.Size(225, 20);
             this.txtNomeArquivo.TabIndex = 1;
             // 
             // txtCaminhoDestino
             // 
-            this.txtCaminhoDestino.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCaminhoDestino.Location = new System.Drawing.Point(155, 212);
+            this.txtCaminhoDestino.BackColor = System.Drawing.Color.Silver;
+            this.txtCaminhoDestino.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaminhoDestino.Location = new System.Drawing.Point(100, 224);
             this.txtCaminhoDestino.Name = "txtCaminhoDestino";
             this.txtCaminhoDestino.Size = new System.Drawing.Size(225, 20);
             this.txtCaminhoDestino.TabIndex = 2;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(155, 101);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(100, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 3;
@@ -96,9 +107,9 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 152);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(100, 164);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 13);
             this.label2.TabIndex = 4;
@@ -106,9 +117,9 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(155, 199);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(100, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 5;
@@ -116,13 +127,15 @@
             // 
             // BtnGerar
             // 
-            this.BtnGerar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnGerar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.BtnGerar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGerar.Location = new System.Drawing.Point(288, 279);
+            this.BtnGerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnGerar.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.BtnGerar.FlatAppearance.BorderSize = 2;
+            this.BtnGerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGerar.ForeColor = System.Drawing.Color.White;
+            this.BtnGerar.Location = new System.Drawing.Point(235, 269);
             this.BtnGerar.Name = "BtnGerar";
-            this.BtnGerar.Size = new System.Drawing.Size(197, 65);
+            this.BtnGerar.Size = new System.Drawing.Size(153, 73);
             this.BtnGerar.TabIndex = 7;
             this.BtnGerar.Text = "COMPACTAR E SALVAR";
             this.BtnGerar.UseVisualStyleBackColor = false;
@@ -130,11 +143,13 @@
             // 
             // comboTipo
             // 
-            this.comboTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboTipo.BackColor = System.Drawing.Color.Silver;
+            this.comboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipo.Items.AddRange(new object[] {
             ".RAR",
             ".ZIP"});
-            this.comboTipo.Location = new System.Drawing.Point(206, 22);
+            this.comboTipo.Location = new System.Drawing.Point(151, 33);
             this.comboTipo.MaxLength = 4;
             this.comboTipo.Name = "comboTipo";
             this.comboTipo.Size = new System.Drawing.Size(121, 21);
@@ -142,9 +157,9 @@
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(172, 25);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(117, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 9;
@@ -152,23 +167,25 @@
             // 
             // BtnGerarSemGravar
             // 
-            this.BtnGerarSemGravar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnGerarSemGravar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.BtnGerarSemGravar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGerarSemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGerarSemGravar.Location = new System.Drawing.Point(58, 279);
+            this.BtnGerarSemGravar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnGerarSemGravar.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.BtnGerarSemGravar.FlatAppearance.BorderSize = 2;
+            this.BtnGerarSemGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGerarSemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGerarSemGravar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnGerarSemGravar.Location = new System.Drawing.Point(25, 269);
             this.BtnGerarSemGravar.Name = "BtnGerarSemGravar";
-            this.BtnGerarSemGravar.Size = new System.Drawing.Size(184, 65);
+            this.BtnGerarSemGravar.Size = new System.Drawing.Size(153, 73);
             this.BtnGerarSemGravar.TabIndex = 16;
-            this.BtnGerarSemGravar.Text = "APENAS COMPACTAR";
+            this.BtnGerarSemGravar.Text = "COMPACTAR";
             this.BtnGerarSemGravar.UseVisualStyleBackColor = false;
             this.BtnGerarSemGravar.Click += new System.EventHandler(this.BtnGerarSemGravar_Click);
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(155, 52);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(100, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 17;
@@ -176,20 +193,22 @@
             // 
             // txtCaminhoTemp
             // 
-            this.txtCaminhoTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCaminhoTemp.Location = new System.Drawing.Point(155, 68);
+            this.txtCaminhoTemp.BackColor = System.Drawing.Color.Silver;
+            this.txtCaminhoTemp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCaminhoTemp.Location = new System.Drawing.Point(100, 80);
             this.txtCaminhoTemp.Name = "txtCaminhoTemp";
             this.txtCaminhoTemp.Size = new System.Drawing.Size(225, 20);
             this.txtCaminhoTemp.TabIndex = 18;
             // 
             // txtComoFunciona
             // 
+            this.txtComoFunciona.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtComoFunciona.AutoSize = true;
-            this.txtComoFunciona.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtComoFunciona.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtComoFunciona.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtComoFunciona.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComoFunciona.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtComoFunciona.Location = new System.Drawing.Point(406, 6);
+            this.txtComoFunciona.ForeColor = System.Drawing.Color.Silver;
+            this.txtComoFunciona.Location = new System.Drawing.Point(283, 6);
             this.txtComoFunciona.Name = "txtComoFunciona";
             this.txtComoFunciona.Size = new System.Drawing.Size(127, 16);
             this.txtComoFunciona.TabIndex = 19;
@@ -199,7 +218,8 @@
             // checkSalvarTemp
             // 
             this.checkSalvarTemp.AutoSize = true;
-            this.checkSalvarTemp.Location = new System.Drawing.Point(387, 70);
+            this.checkSalvarTemp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkSalvarTemp.Location = new System.Drawing.Point(332, 82);
             this.checkSalvarTemp.Name = "checkSalvarTemp";
             this.checkSalvarTemp.Size = new System.Drawing.Size(56, 17);
             this.checkSalvarTemp.TabIndex = 21;
@@ -209,7 +229,8 @@
             // checkSalvarOrigem
             // 
             this.checkSalvarOrigem.AutoSize = true;
-            this.checkSalvarOrigem.Location = new System.Drawing.Point(387, 116);
+            this.checkSalvarOrigem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkSalvarOrigem.Location = new System.Drawing.Point(332, 128);
             this.checkSalvarOrigem.Name = "checkSalvarOrigem";
             this.checkSalvarOrigem.Size = new System.Drawing.Size(56, 17);
             this.checkSalvarOrigem.TabIndex = 22;
@@ -219,7 +240,8 @@
             // checkSalvarDestino
             // 
             this.checkSalvarDestino.AutoSize = true;
-            this.checkSalvarDestino.Location = new System.Drawing.Point(387, 214);
+            this.checkSalvarDestino.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkSalvarDestino.Location = new System.Drawing.Point(332, 226);
             this.checkSalvarDestino.Name = "checkSalvarDestino";
             this.checkSalvarDestino.Size = new System.Drawing.Size(56, 17);
             this.checkSalvarDestino.TabIndex = 23;
@@ -230,65 +252,28 @@
             // 
             this.SobrePastaTemporaria.AutoSize = true;
             this.SobrePastaTemporaria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SobrePastaTemporaria.ForeColor = System.Drawing.Color.Red;
-            this.SobrePastaTemporaria.Location = new System.Drawing.Point(249, 51);
+            this.SobrePastaTemporaria.ForeColor = System.Drawing.Color.Firebrick;
+            this.SobrePastaTemporaria.Location = new System.Drawing.Point(194, 63);
             this.SobrePastaTemporaria.Name = "SobrePastaTemporaria";
             this.SobrePastaTemporaria.Size = new System.Drawing.Size(119, 13);
             this.SobrePastaTemporaria.TabIndex = 24;
             this.SobrePastaTemporaria.Text = "ATENÇÃO! Clique aqui.";
             this.SobrePastaTemporaria.Click += new System.EventHandler(this.SobrePastaTemporaria_Click);
             // 
-            // imgConfigCaminhoTemp
-            // 
-            this.imgConfigCaminhoTemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgConfigCaminhoTemp.BackgroundImage = global::Holtz_Compactador.Properties.Resources.graphite_stripped_folder_developer_14229;
-            this.imgConfigCaminhoTemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgConfigCaminhoTemp.Location = new System.Drawing.Point(111, 62);
-            this.imgConfigCaminhoTemp.Name = "imgConfigCaminhoTemp";
-            this.imgConfigCaminhoTemp.Size = new System.Drawing.Size(38, 29);
-            this.imgConfigCaminhoTemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgConfigCaminhoTemp.TabIndex = 20;
-            this.imgConfigCaminhoTemp.TabStop = false;
-            this.imgConfigCaminhoTemp.Click += new System.EventHandler(this.imgConfigCaminhoTemp_Click);
-            // 
-            // imgConfigCaminhoOrigem
-            // 
-            this.imgConfigCaminhoOrigem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgConfigCaminhoOrigem.BackgroundImage = global::Holtz_Compactador.Properties.Resources.graphite_stripped_folder_developer_14229;
-            this.imgConfigCaminhoOrigem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgConfigCaminhoOrigem.Location = new System.Drawing.Point(111, 107);
-            this.imgConfigCaminhoOrigem.Name = "imgConfigCaminhoOrigem";
-            this.imgConfigCaminhoOrigem.Size = new System.Drawing.Size(38, 29);
-            this.imgConfigCaminhoOrigem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgConfigCaminhoOrigem.TabIndex = 14;
-            this.imgConfigCaminhoOrigem.TabStop = false;
-            this.imgConfigCaminhoOrigem.Click += new System.EventHandler(this.imgConfigCaminhoOrigem_Click);
-            // 
-            // imgConfigCaminhoDestino
-            // 
-            this.imgConfigCaminhoDestino.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgConfigCaminhoDestino.BackgroundImage = global::Holtz_Compactador.Properties.Resources.graphite_stripped_folder_developer_14229;
-            this.imgConfigCaminhoDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgConfigCaminhoDestino.Location = new System.Drawing.Point(111, 206);
-            this.imgConfigCaminhoDestino.Name = "imgConfigCaminhoDestino";
-            this.imgConfigCaminhoDestino.Size = new System.Drawing.Size(38, 29);
-            this.imgConfigCaminhoDestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgConfigCaminhoDestino.TabIndex = 13;
-            this.imgConfigCaminhoDestino.TabStop = false;
-            this.imgConfigCaminhoDestino.Click += new System.EventHandler(this.imgConfigCaminhoDestino_Click);
-            // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Black;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.extensoesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(535, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(412, 24);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // extensoesToolStripMenuItem
             // 
+            this.extensoesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.extensoesToolStripMenuItem.Name = "extensoesToolStripMenuItem";
             this.extensoesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.extensoesToolStripMenuItem.Text = "Exceções";
@@ -297,7 +282,8 @@
             // checkSalvarNomeArquivo
             // 
             this.checkSalvarNomeArquivo.AutoSize = true;
-            this.checkSalvarNomeArquivo.Location = new System.Drawing.Point(387, 165);
+            this.checkSalvarNomeArquivo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkSalvarNomeArquivo.Location = new System.Drawing.Point(332, 177);
             this.checkSalvarNomeArquivo.Name = "checkSalvarNomeArquivo";
             this.checkSalvarNomeArquivo.Size = new System.Drawing.Size(56, 17);
             this.checkSalvarNomeArquivo.TabIndex = 26;
@@ -307,18 +293,108 @@
             // checkSalvarTipo
             // 
             this.checkSalvarTipo.AutoSize = true;
-            this.checkSalvarTipo.Location = new System.Drawing.Point(333, 26);
+            this.checkSalvarTipo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.checkSalvarTipo.Location = new System.Drawing.Point(278, 37);
             this.checkSalvarTipo.Name = "checkSalvarTipo";
             this.checkSalvarTipo.Size = new System.Drawing.Size(56, 17);
             this.checkSalvarTipo.TabIndex = 27;
             this.checkSalvarTipo.Text = "Salvar";
             this.checkSalvarTipo.UseVisualStyleBackColor = true;
             // 
+            // imgOpenZip
+            // 
+            this.imgOpenZip.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgOpenZip.BackgroundImage")));
+            this.imgOpenZip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgOpenZip.Location = new System.Drawing.Point(68, 164);
+            this.imgOpenZip.Name = "imgOpenZip";
+            this.imgOpenZip.Size = new System.Drawing.Size(28, 33);
+            this.imgOpenZip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgOpenZip.TabIndex = 31;
+            this.imgOpenZip.TabStop = false;
+            this.imgOpenZip.Click += new System.EventHandler(this.imgOpenZip_Click);
+            // 
+            // imgOpenCaminhoDestino
+            // 
+            this.imgOpenCaminhoDestino.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgOpenCaminhoDestino.BackgroundImage")));
+            this.imgOpenCaminhoDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgOpenCaminhoDestino.Location = new System.Drawing.Point(68, 216);
+            this.imgOpenCaminhoDestino.Name = "imgOpenCaminhoDestino";
+            this.imgOpenCaminhoDestino.Size = new System.Drawing.Size(28, 33);
+            this.imgOpenCaminhoDestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgOpenCaminhoDestino.TabIndex = 30;
+            this.imgOpenCaminhoDestino.TabStop = false;
+            this.imgOpenCaminhoDestino.Click += new System.EventHandler(this.imgOpenCaminhoDestino_Click);
+            // 
+            // imgOpenCaminhoOrigem
+            // 
+            this.imgOpenCaminhoOrigem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgOpenCaminhoOrigem.BackgroundImage")));
+            this.imgOpenCaminhoOrigem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgOpenCaminhoOrigem.Location = new System.Drawing.Point(68, 115);
+            this.imgOpenCaminhoOrigem.Name = "imgOpenCaminhoOrigem";
+            this.imgOpenCaminhoOrigem.Size = new System.Drawing.Size(28, 33);
+            this.imgOpenCaminhoOrigem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgOpenCaminhoOrigem.TabIndex = 29;
+            this.imgOpenCaminhoOrigem.TabStop = false;
+            this.imgOpenCaminhoOrigem.Click += new System.EventHandler(this.imgOpenCaminhoOrigem_Click);
+            // 
+            // imgOpenPastaTemp
+            // 
+            this.imgOpenPastaTemp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgOpenPastaTemp.BackgroundImage")));
+            this.imgOpenPastaTemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgOpenPastaTemp.Location = new System.Drawing.Point(68, 74);
+            this.imgOpenPastaTemp.Name = "imgOpenPastaTemp";
+            this.imgOpenPastaTemp.Size = new System.Drawing.Size(28, 33);
+            this.imgOpenPastaTemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgOpenPastaTemp.TabIndex = 28;
+            this.imgOpenPastaTemp.TabStop = false;
+            this.imgOpenPastaTemp.Click += new System.EventHandler(this.imgOpenPastaTemp_Click);
+            // 
+            // imgConfigCaminhoTemp
+            // 
+            this.imgConfigCaminhoTemp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgConfigCaminhoTemp.BackgroundImage")));
+            this.imgConfigCaminhoTemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgConfigCaminhoTemp.Location = new System.Drawing.Point(34, 72);
+            this.imgConfigCaminhoTemp.Name = "imgConfigCaminhoTemp";
+            this.imgConfigCaminhoTemp.Size = new System.Drawing.Size(28, 28);
+            this.imgConfigCaminhoTemp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgConfigCaminhoTemp.TabIndex = 20;
+            this.imgConfigCaminhoTemp.TabStop = false;
+            this.imgConfigCaminhoTemp.Click += new System.EventHandler(this.imgConfigCaminhoTemp_Click);
+            // 
+            // imgConfigCaminhoOrigem
+            // 
+            this.imgConfigCaminhoOrigem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgConfigCaminhoOrigem.BackgroundImage")));
+            this.imgConfigCaminhoOrigem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgConfigCaminhoOrigem.Location = new System.Drawing.Point(34, 118);
+            this.imgConfigCaminhoOrigem.Name = "imgConfigCaminhoOrigem";
+            this.imgConfigCaminhoOrigem.Size = new System.Drawing.Size(28, 28);
+            this.imgConfigCaminhoOrigem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgConfigCaminhoOrigem.TabIndex = 14;
+            this.imgConfigCaminhoOrigem.TabStop = false;
+            this.imgConfigCaminhoOrigem.Click += new System.EventHandler(this.imgConfigCaminhoOrigem_Click);
+            // 
+            // imgConfigCaminhoDestino
+            // 
+            this.imgConfigCaminhoDestino.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgConfigCaminhoDestino.BackgroundImage")));
+            this.imgConfigCaminhoDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgConfigCaminhoDestino.Location = new System.Drawing.Point(34, 216);
+            this.imgConfigCaminhoDestino.Name = "imgConfigCaminhoDestino";
+            this.imgConfigCaminhoDestino.Size = new System.Drawing.Size(28, 28);
+            this.imgConfigCaminhoDestino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgConfigCaminhoDestino.TabIndex = 13;
+            this.imgConfigCaminhoDestino.TabStop = false;
+            this.imgConfigCaminhoDestino.Click += new System.EventHandler(this.imgConfigCaminhoDestino_Click);
+            // 
             // FrmCompactador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 391);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(412, 360);
+            this.Controls.Add(this.imgOpenZip);
+            this.Controls.Add(this.imgOpenCaminhoDestino);
+            this.Controls.Add(this.imgOpenCaminhoOrigem);
+            this.Controls.Add(this.imgOpenPastaTemp);
             this.Controls.Add(this.checkSalvarTipo);
             this.Controls.Add(this.checkSalvarNomeArquivo);
             this.Controls.Add(this.SobrePastaTemporaria);
@@ -345,15 +421,20 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(428, 399);
             this.Name = "FrmCompactador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "COMPACTADOR HOLTZ";
             this.Load += new System.EventHandler(this.FrmCompactador_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenZip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenCaminhoDestino)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenCaminhoOrigem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOpenPastaTemp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,6 +467,10 @@
         private System.Windows.Forms.ToolStripMenuItem extensoesToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkSalvarNomeArquivo;
         private System.Windows.Forms.CheckBox checkSalvarTipo;
+        private System.Windows.Forms.PictureBox imgOpenPastaTemp;
+        private System.Windows.Forms.PictureBox imgOpenCaminhoOrigem;
+        private System.Windows.Forms.PictureBox imgOpenCaminhoDestino;
+        private System.Windows.Forms.PictureBox imgOpenZip;
     }
 }
 

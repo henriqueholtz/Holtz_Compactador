@@ -16,6 +16,7 @@ using Ionic.Zip;
 using System.Net.Configuration;
 using Holtz_Compactador;
 using Nevron.Nov.Diagram.Shapes;
+using System.Diagnostics;
 
 namespace Holtz_Compacta
 {
@@ -205,6 +206,55 @@ namespace Holtz_Compacta
         {
             FrmExcecoes exc = new FrmExcecoes();
             exc.ShowDialog();
+        }
+
+        private void imgOpenPastaTemp_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(txtCaminhoTemp.Text))
+            {
+                Process.Start(txtCaminhoTemp.Text);
+            }
+            else
+            {
+                Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
+            }
+        }
+
+        private void imgOpenCaminhoOrigem_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(TxtCaminhoOrigem.Text))
+            {
+                Process.Start(TxtCaminhoOrigem.Text);
+            }
+            else
+            {
+                Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
+            }
+        }
+
+        private void imgOpenZip_Click(object sender, EventArgs e)
+        {
+            string file = txtCaminhoDestino.Text + "\\" + txtNomeArquivo.Text + comboTipo.SelectedItem.ToString();
+            if (File.Exists(file))
+            {
+                Process.Start(file);
+            }
+            else
+            {
+                Alert.ShowError("Este Arquivo não existe ou não foi localizada. Verifique!");
+            }
+        }
+
+        private void imgOpenCaminhoDestino_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(txtCaminhoDestino.Text))
+            {
+                Process.Start(txtCaminhoDestino.Text);
+            }
+            else
+            {
+                Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
+            }
         }
     }
 }

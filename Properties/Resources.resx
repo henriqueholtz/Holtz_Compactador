@@ -121,4 +121,16 @@
   <data name="graphite_stripped_folder_developer_14229" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\graphite_stripped_folder_developer_14229.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="folder_file_9776" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder_file_9776.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="open_256_icon-icons.com_76002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\open_256_icon-icons.com_76002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Folder_Open_26988" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Folder_Open_26988.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Smart_icon-icons.com_75247" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Smart_icon-icons.com_75247.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -130,6 +130,10 @@
   <ItemGroup>
     <Content Include="folder_archive_zip_22613.ico" />
     <Content Include="README.txt" />
+    <None Include="Resources\Smart_icon-icons.com_75247.png" />
+    <None Include="Resources\Folder_Open_26988.png" />
+    <None Include="Resources\open_256_icon-icons.com_76002.png" />
+    <None Include="Resources\folder_file_9776.png" />
     <None Include="Resources\graphite_stripped_folder_developer_14229.png" />
   </ItemGroup>
   <ItemGroup>
