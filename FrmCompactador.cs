@@ -34,9 +34,11 @@ namespace Holtz_Compacta
             txtCaminhoDestino.Text = LoadConfig.ParCaminhoDestino;
             txtCaminhoTemp.Text    = LoadConfig.ParCaminhoTemp;
             txtNomeArquivo.Text    = LoadConfig.ParNomeArquivo;
-            checkSalvarOrigem.Checked  = true ;
-            checkSalvarDestino.Checked = true;
-            checkSalvarTemp.Checked    = true;
+            checkSalvarOrigem.Checked      = true;
+            checkSalvarDestino.Checked     = true;
+            checkSalvarTemp.Checked        = true;
+            checkSalvarTipo.Checked        = true;
+            checkSalvarNomeArquivo.Checked = true;
         }
 
         private void imgConfigCaminhoDestino_Click(object sender, EventArgs e)
@@ -54,12 +56,12 @@ namespace Holtz_Compacta
         private void BtnGerar_Click(object sender, EventArgs e)
         {
             //Salva na classe, e de lá com o método 'GravaJson()' salva no arquivo físico (Config.json);
-            LoadConfig.ParTipo           = comboTipo.SelectedItem.ToString();
+            if (checkSalvarTipo.Checked == true) { LoadConfig.ParTipo = comboTipo.SelectedItem.ToString(); }
             if (checkSalvarOrigem.Checked == true)  { LoadConfig.ParCaminhoOrigem = TxtCaminhoOrigem.Text; }
             if (checkSalvarDestino.Checked == true) { LoadConfig.ParCaminhoDestino = txtCaminhoDestino.Text; }
             if (checkSalvarTemp.Checked == true)    { LoadConfig.ParCaminhoTemp = txtCaminhoTemp.Text; }
-                
-            LoadConfig.ParNomeArquivo    = txtNomeArquivo.Text;
+            if (checkSalvarNomeArquivo.Checked == true) { LoadConfig.ParNomeArquivo = txtNomeArquivo.Text; }    
+            
             LoadConfig.GravaJson();
 
             Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text,txtCaminhoTemp.Text);
@@ -71,6 +73,19 @@ namespace Holtz_Compacta
             }
             BtnGerar.Enabled = true;
             BtnGerarSemGravar.Enabled = true;
+            txtCaminhoDestino.Enabled = true;
+            txtCaminhoTemp.Enabled = true;
+            txtNomeArquivo.Enabled = true;
+            TxtCaminhoOrigem.Enabled = true;
+            checkSalvarDestino.Enabled = true;
+            checkSalvarOrigem.Enabled = true;
+            checkSalvarTemp.Enabled = true;
+            SobrePastaTemporaria.Enabled = true;
+            extensoesToolStripMenuItem.Enabled = true;
+            comboTipo.Enabled = true;
+            imgConfigCaminhoDestino.Enabled = true;
+            imgConfigCaminhoOrigem.Enabled = true;
+            imgConfigCaminhoTemp.Enabled = true;
         }
 
         private void BtnGerarSemGravar_Click(object sender, EventArgs e)
@@ -84,13 +99,42 @@ namespace Holtz_Compacta
             }
             BtnGerar.Enabled = true;
             BtnGerarSemGravar.Enabled = true;
-
+            txtCaminhoDestino.Enabled = true;
+            txtCaminhoTemp.Enabled = true;
+            txtNomeArquivo.Enabled = true;
+            TxtCaminhoOrigem.Enabled = true;
+            checkSalvarDestino.Enabled = true;
+            checkSalvarOrigem.Enabled = true;
+            checkSalvarTemp.Enabled = true;
+            checkSalvarTipo.Enabled = true;
+            checkSalvarNomeArquivo.Enabled = true;
+            SobrePastaTemporaria.Enabled = true;
+            extensoesToolStripMenuItem.Enabled = true;
+            comboTipo.Enabled = true;
+            imgConfigCaminhoDestino.Enabled = true;
+            imgConfigCaminhoOrigem.Enabled = true;
+            imgConfigCaminhoTemp.Enabled = true;
         }
 
         private void Verifica(string ParTipo,string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo, string ParCaminhoTemp)
         {
             BtnGerar.Enabled = false;
             BtnGerarSemGravar.Enabled = false;
+            txtCaminhoDestino.Enabled = false;
+            txtCaminhoTemp.Enabled = false;
+            txtNomeArquivo.Enabled = false;
+            TxtCaminhoOrigem.Enabled = false;
+            checkSalvarDestino.Enabled = false;
+            checkSalvarOrigem.Enabled = false;
+            checkSalvarTemp.Enabled = false;
+            checkSalvarTipo.Enabled = false;
+            checkSalvarNomeArquivo.Enabled = false;
+            SobrePastaTemporaria.Enabled = false;
+            extensoesToolStripMenuItem.Enabled = false;
+            comboTipo.Enabled = false;
+            imgConfigCaminhoDestino.Enabled = false;
+            imgConfigCaminhoOrigem.Enabled = false;
+            imgConfigCaminhoTemp.Enabled = false;
             LoadConfig.ParIsErro = false;
             string mensagem = String.Empty;
             //Alert.ShowInformation("Em desenvolvimento by: Henrique Holtz");
@@ -140,12 +184,6 @@ namespace Holtz_Compacta
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-            FrmSobre msg = new FrmSobre();
-            msg.ShowDialog();
-        }
-
         private void imgConfigCaminhoTemp_Click(object sender, EventArgs e)
         {
             if (folderDialog.ShowDialog() != DialogResult.OK) return;
@@ -157,7 +195,13 @@ namespace Holtz_Compacta
             MessageBox.Show("Esta pasta é ESVAZIADA, depois usada para copiar os aqruivos antes de compactar,e depois é ESVAZIADA novamente! ");
         }
 
-        private void extensõesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void txtComoFunciona_Click(object sender, EventArgs e)
+        {
+            FrmSobre msg = new FrmSobre();
+            msg.ShowDialog();
+        }
+
+        private void extensoesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmExcecoes exc = new FrmExcecoes();
             exc.ShowDialog();

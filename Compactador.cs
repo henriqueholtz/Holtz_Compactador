@@ -36,11 +36,23 @@ namespace Holtz_Compacta
         {
             if (Directory.Exists(ParCaminhoOrigem))
             {
-                
+
                 // Copy folder structure
                 foreach (string sourceSubFolder in Directory.GetDirectories(ParCaminhoOrigem, "*", SearchOption.AllDirectories))
                 {
-                    Directory.CreateDirectory(sourceSubFolder.Replace(ParCaminhoOrigem, ParTemp));
+                    bool IsExcecao = false;
+                    foreach (string excecao in LoadExcecoes.ParPastasN)
+                    {
+                        string auxExcecao = excecao.ToLowerInvariant();
+                        string auxSourceSubFolder = "\\" + sourceSubFolder.ToLowerInvariant();
+                        if (auxSourceSubFolder.Contains(auxExcecao))
+                        {
+                            IsExcecao = true;
+                            break;
+                        }                        
+                    }
+                    if (IsExcecao == false) { Directory.CreateDirectory(sourceSubFolder.Replace(ParCaminhoOrigem, ParTemp)); }
+                    IsExcecao = false;
                 }
 
                 // Copy files
@@ -48,29 +60,19 @@ namespace Holtz_Compacta
                 {
                     string destinationFile = sourceFile.Replace(ParCaminhoOrigem, ParTemp);
                     sourceFile.ToLower(); //para minusculo
-                    File.Copy(sourceFile, destinationFile, true); 
-                }
-
-                //deletar aquivos com extensões não desejadas
-                foreach (string sourceFile in Directory.GetFiles(ParTemp, "*", SearchOption.AllDirectories))
-                {
+                    bool IsExcecao = false;
                     foreach (string item in LoadExcecoes.ParExtensoesN)
                     {
-                        if (Path.GetExtension(sourceFile).ToLower() == item )
-                        //if (sourceFile.Contains(item))
+                        string auxDestinationFile = destinationFile.ToLowerInvariant();
+                        string auxItem = item.ToLowerInvariant();
+                        if (Path.GetExtension(auxDestinationFile) == auxItem)
                         {
-                            File.Delete(sourceFile);
+                            IsExcecao = true;
+                            break; //interrompe a busca por outras extensoes de exceção, afinal já achou
                         }
                     }
-                }
-
-                //deletar pastas não-desejadas
-                foreach (string sourceSubFolder in Directory.GetDirectories(ParTemp, "*", SearchOption.TopDirectoryOnly))
-                {
-                    foreach (string item in LoadExcecoes.ParPastasN)
-                    {
-                        if (sourceSubFolder.ToLower().Contains(item)) { Directory.Delete(sourceSubFolder, true); }
-                    }
+                    if (IsExcecao == false) { File.Copy(sourceFile, destinationFile, true); }
+                    IsExcecao = false;
                 }
             }
         }

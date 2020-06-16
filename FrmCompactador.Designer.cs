@@ -42,7 +42,7 @@
             this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCaminhoTemp = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtComoFunciona = new System.Windows.Forms.Label();
             this.checkSalvarTemp = new System.Windows.Forms.CheckBox();
             this.checkSalvarOrigem = new System.Windows.Forms.CheckBox();
             this.checkSalvarDestino = new System.Windows.Forms.CheckBox();
@@ -51,7 +51,9 @@
             this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
             this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.extensõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extensoesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkSalvarNomeArquivo = new System.Windows.Forms.CheckBox();
+            this.checkSalvarTipo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoOrigem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgConfigCaminhoDestino)).BeginInit();
@@ -142,7 +144,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(241, 6);
+            this.label4.Location = new System.Drawing.Point(172, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 9;
@@ -180,19 +182,19 @@
             this.txtCaminhoTemp.Size = new System.Drawing.Size(225, 20);
             this.txtCaminhoTemp.TabIndex = 18;
             // 
-            // label6
+            // txtComoFunciona
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label6.Location = new System.Drawing.Point(406, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 16);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Como Funciona ?";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.txtComoFunciona.AutoSize = true;
+            this.txtComoFunciona.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtComoFunciona.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.txtComoFunciona.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComoFunciona.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtComoFunciona.Location = new System.Drawing.Point(406, 6);
+            this.txtComoFunciona.Name = "txtComoFunciona";
+            this.txtComoFunciona.Size = new System.Drawing.Size(127, 16);
+            this.txtComoFunciona.TabIndex = 19;
+            this.txtComoFunciona.Text = "Como Funciona ?";
+            this.txtComoFunciona.Click += new System.EventHandler(this.txtComoFunciona_Click);
             // 
             // checkSalvarTemp
             // 
@@ -278,31 +280,53 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.extensõesToolStripMenuItem});
+            this.extensoesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(535, 24);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // extensõesToolStripMenuItem
+            // extensoesToolStripMenuItem
             // 
-            this.extensõesToolStripMenuItem.Name = "extensõesToolStripMenuItem";
-            this.extensõesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.extensõesToolStripMenuItem.Text = "Exceções";
-            this.extensõesToolStripMenuItem.Click += new System.EventHandler(this.extensõesToolStripMenuItem_Click);
+            this.extensoesToolStripMenuItem.Name = "extensoesToolStripMenuItem";
+            this.extensoesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.extensoesToolStripMenuItem.Text = "Exceções";
+            this.extensoesToolStripMenuItem.Click += new System.EventHandler(this.extensoesToolStripMenuItem_Click);
+            // 
+            // checkSalvarNomeArquivo
+            // 
+            this.checkSalvarNomeArquivo.AutoSize = true;
+            this.checkSalvarNomeArquivo.Location = new System.Drawing.Point(387, 165);
+            this.checkSalvarNomeArquivo.Name = "checkSalvarNomeArquivo";
+            this.checkSalvarNomeArquivo.Size = new System.Drawing.Size(56, 17);
+            this.checkSalvarNomeArquivo.TabIndex = 26;
+            this.checkSalvarNomeArquivo.Text = "Salvar";
+            this.checkSalvarNomeArquivo.UseVisualStyleBackColor = true;
+            // 
+            // checkSalvarTipo
+            // 
+            this.checkSalvarTipo.AutoSize = true;
+            this.checkSalvarTipo.Location = new System.Drawing.Point(333, 26);
+            this.checkSalvarTipo.Name = "checkSalvarTipo";
+            this.checkSalvarTipo.Size = new System.Drawing.Size(56, 17);
+            this.checkSalvarTipo.TabIndex = 27;
+            this.checkSalvarTipo.Text = "Salvar";
+            this.checkSalvarTipo.UseVisualStyleBackColor = true;
             // 
             // FrmCompactador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 391);
+            this.Controls.Add(this.checkSalvarTipo);
+            this.Controls.Add(this.checkSalvarNomeArquivo);
             this.Controls.Add(this.SobrePastaTemporaria);
             this.Controls.Add(this.checkSalvarDestino);
             this.Controls.Add(this.checkSalvarOrigem);
             this.Controls.Add(this.checkSalvarTemp);
             this.Controls.Add(this.imgConfigCaminhoTemp);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtComoFunciona);
             this.Controls.Add(this.txtCaminhoTemp);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnGerarSemGravar);
@@ -352,14 +376,16 @@
         private System.Windows.Forms.FolderBrowserDialog folderDialog;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCaminhoTemp;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label txtComoFunciona;
         private System.Windows.Forms.PictureBox imgConfigCaminhoTemp;
         private System.Windows.Forms.CheckBox checkSalvarTemp;
         private System.Windows.Forms.CheckBox checkSalvarOrigem;
         private System.Windows.Forms.CheckBox checkSalvarDestino;
         private System.Windows.Forms.Label SobrePastaTemporaria;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem extensõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem extensoesToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkSalvarNomeArquivo;
+        private System.Windows.Forms.CheckBox checkSalvarTipo;
     }
 }
 
