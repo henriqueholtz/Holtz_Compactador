@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>folder_archive_zip_22613.ico</ApplicationIcon>
+    <ApplicationIcon>rar_file_25816.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.13.8.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="folder_archive_zip_22613.ico" />
+    <Content Include="rar_file_25816.ico" />
     <Content Include="README.txt" />
     <None Include="Resources\Smart_icon-icons.com_75247.png" />
     <None Include="Resources\Folder_Open_26988.png" />
