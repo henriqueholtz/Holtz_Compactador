@@ -20,16 +20,23 @@ namespace Holtz_Compacta
             ParCaminhoOrigem += @"\";
             ParCaminhoDestino += @"\";
             ParCaminhoTemp += @"\";
-            EsvaziarPastaTemp(ParCaminhoTemp);
-            string CaminhoZip = ParCaminhoDestino + ParNomeArquivo + ParTipo.ToLower();
+            try
+            {
+                EsvaziarPastaTemp(ParCaminhoTemp);
+                string CaminhoZip = ParCaminhoDestino + ParNomeArquivo + ParTipo.ToLower();
 
-            Directory.CreateDirectory(ParCaminhoTemp);
-            Copiar(ParCaminhoOrigem, ParCaminhoTemp);
-            if (!Directory.Exists(ParCaminhoDestino)) { Directory.CreateDirectory(ParCaminhoDestino); }
+                Directory.CreateDirectory(ParCaminhoTemp);
+                Copiar(ParCaminhoOrigem, ParCaminhoTemp);
+                if (!Directory.Exists(ParCaminhoDestino)) { Directory.CreateDirectory(ParCaminhoDestino); }
 
-            ZipFile.CreateFromDirectory(ParCaminhoTemp, CaminhoZip);
-            Alert.ShowSucess("Arquivo(os) compactado(os) com sucesso!");
-            EsvaziarPastaTemp(ParCaminhoTemp);
+                ZipFile.CreateFromDirectory(ParCaminhoTemp, CaminhoZip);
+                Alert.ShowSucess("Arquivo(os) compactado(os) com sucesso!");
+                EsvaziarPastaTemp(ParCaminhoTemp);
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void Copiar(string ParCaminhoOrigem, string ParTemp)

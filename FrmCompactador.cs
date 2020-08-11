@@ -92,7 +92,9 @@ namespace Holtz_Compacta
         private void BtnGerarSemGravar_Click(object sender, EventArgs e)
         {
             Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text,txtCaminhoTemp.Text);
-
+            //IEnumerable<string> folders = Directory.EnumerateDirectories(@"c:\pasta", "*.*", SearchOption.AllDirectories); //Curso Nelio Alves
+            //IEnumerable<string> files = Directory.EnumerateFiles(@"C:\pasta", "*.*", SearchOption.AllDirectories);//Curso Nelio Alves
+            //Path.GetFileName(@"c:\temp\arq.txt"); //= "arq.txt"
             if (LoadConfig.ParIsErro == false)
             {
                 Compactador varCompactador = new Compactador();
@@ -255,6 +257,11 @@ namespace Holtz_Compacta
             {
                 Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
             }
+        }
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            Compactor.Compact(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString());
         }
     }
 }

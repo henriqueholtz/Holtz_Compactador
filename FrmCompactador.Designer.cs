@@ -58,6 +58,7 @@
             this.imgConfigCaminhoTemp = new System.Windows.Forms.PictureBox();
             this.imgConfigCaminhoOrigem = new System.Windows.Forms.PictureBox();
             this.imgConfigCaminhoDestino = new System.Windows.Forms.PictureBox();
+            this.BtnTest = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgOpenZip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOpenCaminhoDestino)).BeginInit();
@@ -133,7 +134,7 @@
             this.BtnGerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGerar.ForeColor = System.Drawing.Color.White;
-            this.BtnGerar.Location = new System.Drawing.Point(235, 269);
+            this.BtnGerar.Location = new System.Drawing.Point(247, 269);
             this.BtnGerar.Name = "BtnGerar";
             this.BtnGerar.Size = new System.Drawing.Size(153, 73);
             this.BtnGerar.TabIndex = 7;
@@ -173,7 +174,7 @@
             this.BtnGerarSemGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGerarSemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGerarSemGravar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnGerarSemGravar.Location = new System.Drawing.Point(25, 269);
+            this.BtnGerarSemGravar.Location = new System.Drawing.Point(12, 269);
             this.BtnGerarSemGravar.Name = "BtnGerarSemGravar";
             this.BtnGerarSemGravar.Size = new System.Drawing.Size(153, 73);
             this.BtnGerarSemGravar.TabIndex = 16;
@@ -385,12 +386,29 @@
             this.imgConfigCaminhoDestino.TabStop = false;
             this.imgConfigCaminhoDestino.Click += new System.EventHandler(this.imgConfigCaminhoDestino_Click);
             // 
+            // BtnTest
+            // 
+            this.BtnTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnTest.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.BtnTest.FlatAppearance.BorderSize = 2;
+            this.BtnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnTest.Location = new System.Drawing.Point(180, 269);
+            this.BtnTest.Name = "BtnTest";
+            this.BtnTest.Size = new System.Drawing.Size(58, 73);
+            this.BtnTest.TabIndex = 32;
+            this.BtnTest.Text = "Dev";
+            this.BtnTest.UseVisualStyleBackColor = false;
+            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
+            // 
             // FrmCompactador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(412, 360);
+            this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.imgOpenZip);
             this.Controls.Add(this.imgOpenCaminhoDestino);
             this.Controls.Add(this.imgOpenCaminhoOrigem);
@@ -471,6 +489,7 @@
         private System.Windows.Forms.PictureBox imgOpenCaminhoOrigem;
         private System.Windows.Forms.PictureBox imgOpenCaminhoDestino;
         private System.Windows.Forms.PictureBox imgOpenZip;
+        private System.Windows.Forms.Button BtnTest;
     }
 }
 

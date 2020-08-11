@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compactador.cs" />
+    <Compile Include="Compactor.cs" />
+    <Compile Include="CompactorException.cs" />
     <Compile Include="FrmCompactador.cs">
       <SubType>Form</SubType>
     </Compile>
