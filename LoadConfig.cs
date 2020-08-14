@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Web.Script.Serialization;
-using Nevron.Nov.Diagram.Shapes;
 
 namespace Holtz_Compacta
 {
@@ -14,7 +9,6 @@ namespace Holtz_Compacta
     {
         private static string CaminhoOrigem;
         private static string CaminhoDestino;
-        private static string CaminhoTemp;
         private static string NomeArquivo;
         private static string Tipo;
         private static bool IsErro;
@@ -30,11 +24,6 @@ namespace Holtz_Compacta
         {
             get { return CaminhoDestino; }
             set { CaminhoDestino = value; }
-        }
-        public static string ParCaminhoTemp
-        {
-            get { return CaminhoTemp; }
-            set { CaminhoTemp = value; }
         }
         public static string ParNomeArquivo
         {
@@ -77,9 +66,6 @@ namespace Holtz_Compacta
                     case "Tipo":
                         Tipo = String.Format("{1}", key, value);
                         break;
-                    case "CaminhoTemp":
-                        CaminhoTemp = String.Format("{1}", key, value);
-                        break;
                 }
             }
         }
@@ -93,7 +79,6 @@ namespace Holtz_Compacta
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ParCaminhoOrigem = serializer.Serialize(CaminhoOrigem);
             string ParCaminhoDestino = serializer.Serialize(CaminhoDestino);
-            string ParCaminhoTemp = serializer.Serialize(CaminhoTemp);
             string ParNomeArquivo = serializer.Serialize(NomeArquivo);
             string ParTipo = serializer.Serialize(Tipo);
 
@@ -101,8 +86,7 @@ namespace Holtz_Compacta
                 "\"Tipo\": " + ParTipo + ", " +
                 "\"CaminhoOrigem\": " + ParCaminhoOrigem + ", " +
                 "\"CaminhoDestino\": " + ParCaminhoDestino + ", " +
-                "\"NomeArquivo\": " + ParNomeArquivo + ", " +
-                "\"CaminhoTemp\": " + ParCaminhoTemp +
+                "\"NomeArquivo\": " + ParNomeArquivo +
                 "}";
 
             File.WriteAllText(caminhoArquivo, json); //Grava no arquivo físico

@@ -33,11 +33,9 @@ namespace Holtz_Compacta
             comboTipo.SelectedItem = LoadConfig.ParTipo;
             TxtCaminhoOrigem.Text  = LoadConfig.ParCaminhoOrigem;
             txtCaminhoDestino.Text = LoadConfig.ParCaminhoDestino;
-            txtCaminhoTemp.Text    = LoadConfig.ParCaminhoTemp;
             txtNomeArquivo.Text    = LoadConfig.ParNomeArquivo;
             checkSalvarOrigem.Checked      = true;
             checkSalvarDestino.Checked     = true;
-            checkSalvarTemp.Checked        = true;
             checkSalvarTipo.Checked        = true;
             checkSalvarNomeArquivo.Checked = true;
         }
@@ -60,87 +58,72 @@ namespace Holtz_Compacta
             if (checkSalvarTipo.Checked == true) { LoadConfig.ParTipo = comboTipo.SelectedItem.ToString(); }
             if (checkSalvarOrigem.Checked == true)  { LoadConfig.ParCaminhoOrigem = TxtCaminhoOrigem.Text; }
             if (checkSalvarDestino.Checked == true) { LoadConfig.ParCaminhoDestino = txtCaminhoDestino.Text; }
-            if (checkSalvarTemp.Checked == true)    { LoadConfig.ParCaminhoTemp = txtCaminhoTemp.Text; }
             if (checkSalvarNomeArquivo.Checked == true) { LoadConfig.ParNomeArquivo = txtNomeArquivo.Text; }    
             
             LoadConfig.GravaJson();
 
-            Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text,txtCaminhoTemp.Text);
+            Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text);
             
             if (LoadConfig.ParIsErro == false)
             {
-                Compactador varCompactador = new Compactador();
-                varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                //Compactador varCompactador = new Compactador();
+                //varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                Compactor.Compact(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString());
             }
             BtnGerar.Enabled = true;
             BtnGerarSemGravar.Enabled = true;
             txtCaminhoDestino.Enabled = true;
-            txtCaminhoTemp.Enabled = true;
             txtNomeArquivo.Enabled = true;
             TxtCaminhoOrigem.Enabled = true;
             checkSalvarDestino.Enabled = true;
             checkSalvarOrigem.Enabled = true;
-            checkSalvarTemp.Enabled = true;
-            SobrePastaTemporaria.Enabled = true;
             extensoesToolStripMenuItem.Enabled = true;
             comboTipo.Enabled = true;
             imgConfigCaminhoDestino.Enabled = true;
             imgConfigCaminhoOrigem.Enabled = true;
-            imgConfigCaminhoTemp.Enabled = true;
         }
 
         private void BtnGerarSemGravar_Click(object sender, EventArgs e)
         {
-            Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text,txtCaminhoTemp.Text);
-            //IEnumerable<string> folders = Directory.EnumerateDirectories(@"c:\pasta", "*.*", SearchOption.AllDirectories); //Curso Nelio Alves
-            //IEnumerable<string> files = Directory.EnumerateFiles(@"C:\pasta", "*.*", SearchOption.AllDirectories);//Curso Nelio Alves
-            //Path.GetFileName(@"c:\temp\arq.txt"); //= "arq.txt"
+            Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text);
             if (LoadConfig.ParIsErro == false)
             {
-                Compactador varCompactador = new Compactador();
-                varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                //Compactador varCompactador = new Compactador();
+                //varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                Compactor.Compact(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString());
             }
             BtnGerar.Enabled = true;
             BtnGerarSemGravar.Enabled = true;
             txtCaminhoDestino.Enabled = true;
-            txtCaminhoTemp.Enabled = true;
             txtNomeArquivo.Enabled = true;
             TxtCaminhoOrigem.Enabled = true;
             checkSalvarDestino.Enabled = true;
             checkSalvarOrigem.Enabled = true;
-            checkSalvarTemp.Enabled = true;
             checkSalvarTipo.Enabled = true;
             checkSalvarNomeArquivo.Enabled = true;
-            SobrePastaTemporaria.Enabled = true;
             extensoesToolStripMenuItem.Enabled = true;
             comboTipo.Enabled = true;
             imgConfigCaminhoDestino.Enabled = true;
             imgConfigCaminhoOrigem.Enabled = true;
-            imgConfigCaminhoTemp.Enabled = true;
         }
 
-        private void Verifica(string ParTipo,string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo, string ParCaminhoTemp)
+        private void Verifica(string ParTipo,string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo)
         {
             BtnGerar.Enabled = false;
             BtnGerarSemGravar.Enabled = false;
             txtCaminhoDestino.Enabled = false;
-            txtCaminhoTemp.Enabled = false;
             txtNomeArquivo.Enabled = false;
             TxtCaminhoOrigem.Enabled = false;
             checkSalvarDestino.Enabled = false;
             checkSalvarOrigem.Enabled = false;
-            checkSalvarTemp.Enabled = false;
             checkSalvarTipo.Enabled = false;
             checkSalvarNomeArquivo.Enabled = false;
-            SobrePastaTemporaria.Enabled = false;
             extensoesToolStripMenuItem.Enabled = false;
             comboTipo.Enabled = false;
             imgConfigCaminhoDestino.Enabled = false;
             imgConfigCaminhoOrigem.Enabled = false;
-            imgConfigCaminhoTemp.Enabled = false;
             LoadConfig.ParIsErro = false;
             string mensagem = String.Empty;
-            //Alert.ShowInformation("Em desenvolvimento by: Henrique Holtz");
             if (ParCaminhoOrigem.Length <= 3)
             {
                 LoadConfig.ParIsErro = true;
@@ -150,11 +133,6 @@ namespace Holtz_Compacta
             {
                 LoadConfig.ParIsErro = true;
                 mensagem += " O caminho de Destino não está válido. Verifique!";
-            }
-            if (ParCaminhoTemp.Length <= 3)
-            {
-                LoadConfig.ParIsErro = true;
-                mensagem += " O caminho da pasta Temp não está válido. Verifique!";
             }
             if (ParTipo.Length != 4)
             {
@@ -175,27 +153,6 @@ namespace Holtz_Compacta
             {
                 Alert.ShowError(mensagem);
             }
-            else
-            {
-                if (!Directory.Exists(ParCaminhoDestino)) { Directory.CreateDirectory(ParCaminhoDestino); }
-                if (!Directory.Exists(ParCaminhoTemp)) { Directory.CreateDirectory(ParCaminhoTemp); }
-                LoadExcecoes.LimparExtensoesN();
-                LoadExcecoes.LimparPastasN();
-                LoadExcecoes.CarregaExtensoesN();
-                LoadExcecoes.CarregaPastasN();
-                Alert.ShowSucess("Pronto para compactar");
-            }
-        }
-
-        private void imgConfigCaminhoTemp_Click(object sender, EventArgs e)
-        {
-            if (folderDialog.ShowDialog() != DialogResult.OK) return;
-            txtCaminhoTemp.Text = folderDialog.SelectedPath.ToString();
-        }
-
-        private void SobrePastaTemporaria_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Esta pasta é ESVAZIADA, depois usada para copiar os aqruivos antes de compactar,e depois é ESVAZIADA novamente! ");
         }
 
         private void txtComoFunciona_Click(object sender, EventArgs e)
@@ -208,18 +165,6 @@ namespace Holtz_Compacta
         {
             FrmExcecoes exc = new FrmExcecoes();
             exc.ShowDialog();
-        }
-
-        private void imgOpenPastaTemp_Click(object sender, EventArgs e)
-        {
-            if (Directory.Exists(txtCaminhoTemp.Text))
-            {
-                Process.Start(txtCaminhoTemp.Text);
-            }
-            else
-            {
-                Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
-            }
         }
 
         private void imgOpenCaminhoOrigem_Click(object sender, EventArgs e)
@@ -257,11 +202,6 @@ namespace Holtz_Compacta
             {
                 Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
             }
-        }
-
-        private void BtnTest_Click(object sender, EventArgs e)
-        {
-            Compactor.Compact(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString());
         }
     }
 }

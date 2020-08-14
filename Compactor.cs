@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Web.Script.Serialization;
 using Ionic.Zip;
 using System.Drawing;
+using Vip.Notification;
 
 namespace Holtz_Compactador
 {
@@ -95,6 +96,7 @@ namespace Holtz_Compactador
                     try
                     {
                         FileCompacted.Save();
+                        Alert.ShowSucess("Arquivo compactado com sucesso!");
                     }
                     catch
                     {

@@ -105,6 +105,7 @@
             // 
             this.txtNovaExtensao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNovaExtensao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNovaExtensao.ForeColor = System.Drawing.SystemColors.Window;
             this.txtNovaExtensao.Location = new System.Drawing.Point(25, 250);
             this.txtNovaExtensao.Name = "txtNovaExtensao";
             this.txtNovaExtensao.Size = new System.Drawing.Size(139, 20);
@@ -140,6 +141,7 @@
             // 
             this.txtNovaPasta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNovaPasta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNovaPasta.ForeColor = System.Drawing.SystemColors.Window;
             this.txtNovaPasta.Location = new System.Drawing.Point(328, 250);
             this.txtNovaPasta.Name = "txtNovaPasta";
             this.txtNovaPasta.Size = new System.Drawing.Size(214, 20);
