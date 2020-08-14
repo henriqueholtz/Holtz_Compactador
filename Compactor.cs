@@ -20,6 +20,7 @@ namespace Holtz_Compactador
         private static string PathExtensionsJson = Directory.GetParent(Directory.GetParent(BaseDirectory).FullName).FullName + @"\Extensoes.json";
         private static string PathFoldersJson = Directory.GetParent(Directory.GetParent(BaseDirectory).FullName).FullName + @"\Pastas.json";
         private static string WindowsFolderTemp = Path.GetTempPath();
+        private static char separator = Path.DirectorySeparatorChar;
 
         public static void Compact(string sourceFolder, string targetFolder, string targetFileName, string extension)
         {
@@ -46,7 +47,6 @@ namespace Holtz_Compactador
                 //Excluindo conforme exceções de PASTAS
                 foreach (string folder in folders)
                 {
-                    char separator = Path.DirectorySeparatorChar;
                     //string folderName = Path.GetDirectoryName(folder); //pega primeira pasta exemplo web de c:\web
                     string[] temp = folder.Split(separator);
                     IEnumerable<string> tempEnum = temp.AsEnumerable();
@@ -86,11 +86,15 @@ namespace Holtz_Compactador
                     //compactando
                     foreach (string file in ListFiles)
                     {
-                        FileCompacted.AddFile(file);
+                        int lengthSource = sourceFolder.Length + 1; //Pega o caminho + a '\'
+                        int lengthItem = file.Length -1; //Pega o caminho - a '\'
+                        string directoryPathInArqchive = file.Substring(lengthSource, lengthItem - lengthSource);
+                        if (!directoryPathInArqchive.Contains(separator)) //dignifica que este "file" está na raiz
+                        {
+                            directoryPathInArqchive = "";
+                        }
+                        FileCompacted.AddItem(file, directoryPathInArqchive);
                     }
-
-                    //Preciso remover a árvore de pastas exemplo origem= C:\pasta1\pasta2\web\arquivos
-                    //O zip deveria ter apenas web\arquivos ou somente arquivos
 
                     //Save File compacted
                     try
