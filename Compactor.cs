@@ -22,9 +22,6 @@ namespace Holtz_Compactador
 
         public static void Compact(string sourceFolder, string targetFolder, string targetFileName, string extension)
         {
-            //IEnumerable<string> folders = Directory.EnumerateDirectories(@"c:\pasta", "*.*", SearchOption.AllDirectories); //Curso Nelio Alves
-            //IEnumerable<string> files = Directory.EnumerateFiles(@"C:\pasta", "*.*", SearchOption.AllDirectories);//Curso Nelio Alves
-            //Path.GetFileName(@"c:\temp\arq.txt"); //= "arq.txt"
             string FinishTotalName = targetFolder + @"\" + targetFileName + extension.ToLower();
             try
             {
@@ -40,52 +37,59 @@ namespace Holtz_Compactador
                 LoadExcecoes.CarregaExtensoesN();
                 LoadExcecoes.CarregaPastasN();
 
+                // Structure Folders and Files
+                IEnumerable<string> folders = Directory.EnumerateDirectories(sourceFolder, "*.*", SearchOption.AllDirectories);
+                IEnumerable<string> files = Directory.EnumerateFiles(sourceFolder, "*.*", SearchOption.AllDirectories);
+                List<string> ListFiles = files.ToList(); //Para conseguir excluir
+                //ListFiles.Count =816!!!!
+                //Excluindo conforme exceções de PASTAS
+                foreach (string folder in folders)
+                {
+                    char separator = Path.DirectorySeparatorChar;
+                    //string folderName = Path.GetDirectoryName(folder); //pega primeira pasta exemplo web de c:\web
+                    string[] temp = folder.Split(separator);
+                    IEnumerable<string> tempEnum = temp.AsEnumerable();
+                    string LastFolderName = tempEnum.Last(); //pega ultimo pq vai ser o nome da pasta
+
+                    foreach (string item in LoadExcecoes.ParPastasN)
+                    {
+                        if (item.ToLower() == LastFolderName.ToLower())
+                        {
+                            foreach (string itemList in files) //ou AuxListFiles
+                            {
+                                if (itemList.Contains(folder))
+                                {
+                                    ListFiles.Remove(itemList);
+                                    //break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //Excluindo conforme exceções de EXTENSÕES
+                foreach (string file in files)
+                {
+                    string ext = Path.GetExtension(file);
+                    foreach (string item in LoadExcecoes.ParExtensoesN)
+                    {
+                        if (item.ToLower() == ext.ToLower())
+                        {
+                            ListFiles.Remove(file);
+                        }
+                    }
+                }
 
                 using (ZipFile FileCompacted = new ZipFile(FinishTotalName))
                 {
-                    // Structure Folders
-                    IEnumerable<string> folders = Directory.EnumerateDirectories(sourceFolder, "*.*", SearchOption.AllDirectories);
-                    IEnumerable<string> files = Directory.EnumerateFiles(sourceFolder, "*.*", SearchOption.AllDirectories);
-                    List<string> ListFiles = files.ToList(); //Para conseguir excluir
-
-                    //Excluindo conforme exceções de PASTAS
-                    foreach (string folder in folders)
-                    {
-                        char separator = Path.DirectorySeparatorChar;
-                        //string folderName = Path.GetDirectoryName(folder); //pega primeira pasta exemplo web de c:\web
-                        string[] temp = folder.Split(separator);
-                        IEnumerable<string> tempEnum = temp.AsEnumerable();
-                        string LastFolderName = tempEnum.Last(); //pega ultimo pq vai ser o nome da pasta
-                        
-                        foreach (string item in LoadExcecoes.ParPastasN)
-                        {
-                            if (item.ToLower() == LastFolderName.ToLower())
-                            {
-                                //item = "PublicTempStorage" e na lista ta "C:\pasta\PublicTempStorage\arquivo.txt"
-                                //no caso nao ta removendo da lista
-                                ListFiles.Remove(item);
-                            }
-                        }
-                    }
-
-                    //Excluindo conforme exceções de EXTENSÕES
-                    foreach (string file in files)
-                    {
-                        string ext = Path.GetExtension(file);
-                        foreach (string item in LoadExcecoes.ParExtensoesN)
-                        {
-                            if (item.ToLower() == ext.ToLower())
-                            {
-                                ListFiles.Remove(item);
-                            }
-                        }
-                    }
-
                     //compactando
                     foreach (string file in ListFiles)
                     {
                         FileCompacted.AddFile(file);
                     }
+
+                    //Preciso remover a árvore de pastas exemplo origem= C:\pasta1\pasta2\web\arquivos
+                    //O zip deveria ter apenas web\arquivos ou somente arquivos
 
                     //Save File compacted
                     try
@@ -107,6 +111,10 @@ namespace Holtz_Compactador
             {
                 MessageBox.Show(e.Message);
             }
+            //catch (InvalidOperationException e) //capturar exceções mais genéricas
+            //{
+            //    MessageBox.Show(e.Message);
+            //}
         }
 
         private static void GetExtensionsAndFoldersExceptions()
