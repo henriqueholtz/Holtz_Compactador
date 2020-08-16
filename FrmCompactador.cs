@@ -1,21 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Web.Script.Serialization;
 using Vip.Notification;
 using System.IO;
-using System.Data.SqlTypes;
-using System.IO.Compression;
-using Ionic.Zip;
-using System.Net.Configuration;
 using Holtz_Compactador;
-using Nevron.Nov.Diagram.Shapes;
 using System.Diagnostics;
 
 namespace Holtz_Compacta
@@ -31,12 +18,12 @@ namespace Holtz_Compacta
         {
             LoadConfig.CarregaJson();
             comboTipo.SelectedItem = LoadConfig.ParTipo;
-            TxtCaminhoOrigem.Text  = LoadConfig.ParCaminhoOrigem;
+            TxtCaminhoOrigem.Text = LoadConfig.ParCaminhoOrigem;
             txtCaminhoDestino.Text = LoadConfig.ParCaminhoDestino;
-            txtNomeArquivo.Text    = LoadConfig.ParNomeArquivo;
-            checkSalvarOrigem.Checked      = true;
-            checkSalvarDestino.Checked     = true;
-            checkSalvarTipo.Checked        = true;
+            txtNomeArquivo.Text = LoadConfig.ParNomeArquivo;
+            checkSalvarOrigem.Checked = true;
+            checkSalvarDestino.Checked = true;
+            checkSalvarTipo.Checked = true;
             checkSalvarNomeArquivo.Checked = true;
         }
 
@@ -54,22 +41,25 @@ namespace Holtz_Compacta
 
         private void BtnGerar_Click(object sender, EventArgs e)
         {
-            //Salva na classe, e de lá com o método 'GravaJson()' salva no arquivo físico (Config.json);
-            if (checkSalvarTipo.Checked == true) { LoadConfig.ParTipo = comboTipo.SelectedItem.ToString(); }
-            if (checkSalvarOrigem.Checked == true)  { LoadConfig.ParCaminhoOrigem = TxtCaminhoOrigem.Text; }
-            if (checkSalvarDestino.Checked == true) { LoadConfig.ParCaminhoDestino = txtCaminhoDestino.Text; }
-            if (checkSalvarNomeArquivo.Checked == true) { LoadConfig.ParNomeArquivo = txtNomeArquivo.Text; }    
-            
-            LoadConfig.GravaJson();
-
-            Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text);
-            
-            if (LoadConfig.ParIsErro == false)
+            try
             {
-                //Compactador varCompactador = new Compactador();
-                //varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                if (comboTipo.SelectedItem == null) { throw new CompactorException("Você deve selecionar um Tipo de compactação!"); }
+                Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text);
+                //Salva na classe, e de lá com o método 'GravaJson()' salva no arquivo físico (Config.json);
+                if (checkSalvarTipo.Checked == true) { LoadConfig.ParTipo = comboTipo.SelectedItem.ToString(); }
+                if (checkSalvarOrigem.Checked == true) { LoadConfig.ParCaminhoOrigem = TxtCaminhoOrigem.Text; }
+                if (checkSalvarDestino.Checked == true) { LoadConfig.ParCaminhoDestino = txtCaminhoDestino.Text; }
+                if (checkSalvarNomeArquivo.Checked == true) { LoadConfig.ParNomeArquivo = txtNomeArquivo.Text; }
+
+                LoadConfig.GravaJson();
                 Compactor.Compact(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString());
+
             }
+            catch (CompactorException ex)
+            {
+                Alert.ShowError(ex.Message);
+            }
+
             BtnGerar.Enabled = true;
             BtnGerarSemGravar.Enabled = true;
             txtCaminhoDestino.Enabled = true;
@@ -85,13 +75,17 @@ namespace Holtz_Compacta
 
         private void BtnGerarSemGravar_Click(object sender, EventArgs e)
         {
-            Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text);
-            if (LoadConfig.ParIsErro == false)
+            try
             {
-                //Compactador varCompactador = new Compactador();
-                //varCompactador.Compactar(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString(), txtCaminhoTemp.Text);
+                if (comboTipo.SelectedItem == null) { throw new CompactorException("Você deve selecionar um Tipo de compactação!"); }
+                Verifica(comboTipo.SelectedItem.ToString(), TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text);
                 Compactor.Compact(TxtCaminhoOrigem.Text, txtCaminhoDestino.Text, txtNomeArquivo.Text, comboTipo.SelectedItem.ToString());
             }
+            catch (CompactorException ex)
+            {
+                Alert.ShowError(ex.Message);
+            }
+
             BtnGerar.Enabled = true;
             BtnGerarSemGravar.Enabled = true;
             txtCaminhoDestino.Enabled = true;
@@ -107,7 +101,7 @@ namespace Holtz_Compacta
             imgConfigCaminhoOrigem.Enabled = true;
         }
 
-        private void Verifica(string ParTipo,string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo)
+        private void Verifica(string ParTipo, string ParCaminhoOrigem, string ParCaminhoDestino, string ParNomeArquivo)
         {
             BtnGerar.Enabled = false;
             BtnGerarSemGravar.Enabled = false;
@@ -122,36 +116,26 @@ namespace Holtz_Compacta
             comboTipo.Enabled = false;
             imgConfigCaminhoDestino.Enabled = false;
             imgConfigCaminhoOrigem.Enabled = false;
-            LoadConfig.ParIsErro = false;
-            string mensagem = String.Empty;
+            
             if (ParCaminhoOrigem.Length <= 3)
             {
-                LoadConfig.ParIsErro = true;
-                mensagem += " O caminho de origem não está válido. Verifique!";
+                throw new CompactorException(" O caminho de origem não está válido. Verifique!");
             }
             if (ParCaminhoDestino.Length <= 3)
             {
-                LoadConfig.ParIsErro = true;
-                mensagem += " O caminho de Destino não está válido. Verifique!";
+                throw new CompactorException(" O caminho de Destino não está válido. Verifique!");
             }
             if (ParTipo.Length != 4)
             {
-                LoadConfig.ParIsErro = true;
-                mensagem += " O Tipo não é válido. Utilize '.RAR' ou '.ZIP'";
+                throw new CompactorException(" O Tipo não é válido. Utilize '.RAR' ou '.ZIP'");
             }
-            if (ParNomeArquivo.Length == 0)
+            if (/*ParNomeArquivo ==*/ String.IsNullOrWhiteSpace(ParNomeArquivo) /* .Length == 0*/)
             {
-                LoadConfig.ParIsErro = true;
-                mensagem += " O Nome do arquivo não pode ser vazio.";
+                throw new CompactorException(" O Nome do arquivo não pode ser vazio.");
             }
-            if (File.Exists(ParCaminhoDestino + @"\" +  ParNomeArquivo + ParTipo.ToLower()))
+            if (File.Exists(ParCaminhoDestino + @"\" + ParNomeArquivo + ParTipo.ToLower()))
             {
-                LoadConfig.ParIsErro = true;
-                mensagem += "Já existe um arquivo com o nome escolhido, e a mesma extensão.Exclua o arquivo ou escolha outro nome.";
-            }
-            if (LoadConfig.ParIsErro == true)
-            {
-                Alert.ShowError(mensagem);
+                throw new CompactorException("Já existe um arquivo com o nome escolhido, e a mesma extensão.Exclua o arquivo ou escolha outro nome.");
             }
         }
 
@@ -202,6 +186,47 @@ namespace Holtz_Compacta
             {
                 Alert.ShowError("Esta pasta não existe ou não foi localizada. Verifique!");
             }
+        }
+
+        private void limparConfiguraçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+            string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
+            caminhoArquivo += @"\Config.json";
+            using (StreamWriter sr = new StreamWriter(caminhoArquivo))
+            {
+                sr.Write("");
+            }
+            LoadConfig.CarregaJson();
+            comboTipo.SelectedItem = null;
+            TxtCaminhoOrigem.Text = LoadConfig.ParCaminhoOrigem;
+            txtCaminhoDestino.Text = LoadConfig.ParCaminhoDestino;
+            txtNomeArquivo.Text = LoadConfig.ParNomeArquivo;
+            checkSalvarOrigem.Checked = true;
+            checkSalvarDestino.Checked = true;
+            checkSalvarTipo.Checked = true;
+            checkSalvarNomeArquivo.Checked = true;
+            Alert.ShowSucess("Todas Configurações foram excluídas.");
+        }
+
+        private void limparExceçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+            string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
+            string arquivo = caminhoArquivo + @"\Pastas.json";
+            using (StreamWriter sr = new StreamWriter(arquivo))
+            {
+                sr.Write("");
+            }
+
+            arquivo = String.Empty;
+            arquivo = caminhoArquivo + @"\Extensoes.json";
+            using (StreamWriter sr = new StreamWriter(arquivo))
+            {
+                sr.Write("");
+            }
+            LoadExcecoes.ClearAll();
+            Alert.ShowSucess("Todas Exceções foram excluídas.");
         }
     }
 }

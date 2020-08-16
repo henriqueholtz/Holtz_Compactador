@@ -126,32 +126,33 @@ namespace Holtz_Compactador
             //ExtensionsExceptions.Clear();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string Extensionsjson = File.ReadAllText(PathExtensionsJson);
-            dynamic resultado = serializer.DeserializeObject(Extensionsjson);
-            foreach (KeyValuePair<string, object> entry in resultado)
+            if (Extensionsjson.Length > 2)
             {
-                var key = entry.Key;
-                var value = entry.Value as string;
-                ExtensionsExceptions.Add(value);
+                dynamic resultado = serializer.DeserializeObject(Extensionsjson);
+                foreach (KeyValuePair<string, object> entry in resultado)
+                {
+                    var key = entry.Key;
+                    var value = entry.Value as string;
+                    ExtensionsExceptions.Add(value);
+                }
             }
+
             serializer = null;
-            resultado = null;
 
             //Load folders exceptions
             //FoldersExceptions.Clear();
             serializer = new JavaScriptSerializer();
             string Foldersjson = File.ReadAllText(PathFoldersJson);
-            resultado = serializer.DeserializeObject(Foldersjson);
-            foreach (KeyValuePair<string, object> entry in resultado)
+            if (Foldersjson.Length > 2)
             {
-                var key = entry.Key;
-                var value = entry.Value as string;
-                FoldersExceptions.Add(value);
+                dynamic resultado = serializer.DeserializeObject(Foldersjson);
+                foreach (KeyValuePair<string, object> entry in resultado)
+                {
+                    var key = entry.Key;
+                    var value = entry.Value as string;
+                    FoldersExceptions.Add(value);
+                }
             }
-        }
-        
-        private static void AddFile(string fileName)
-        {
-
         }
     }
 }

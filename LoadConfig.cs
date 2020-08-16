@@ -11,7 +11,6 @@ namespace Holtz_Compacta
         private static string CaminhoDestino;
         private static string NomeArquivo;
         private static string Tipo;
-        private static bool IsErro;
         //arquivo que nao vao ser copiados, ex: .txt
         //pastas que não vão ser copiados, exemplo publictemp
         private static string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
@@ -34,11 +33,6 @@ namespace Holtz_Compacta
         {
             get { return Tipo; }
             set { Tipo = value; }
-        }
-        public static bool ParIsErro
-        {
-            get { return IsErro; }
-            set { IsErro = value; }
         }
 
         public static void CarregaJson()
@@ -76,6 +70,13 @@ namespace Holtz_Compacta
                                 break;
                         }
                     }
+                }
+                else
+                {
+                    CaminhoOrigem = "";
+                    CaminhoDestino = "";
+                    NomeArquivo = "";
+                    Tipo = "";
                 }
             }
         }

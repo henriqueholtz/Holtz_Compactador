@@ -5,9 +5,9 @@ namespace Holtz_Compactador
 {
     class CompactorException : Exception
     {
-        public CompactorException(string msg)// : base(msg)
+        public CompactorException(string msg) : base(msg)
         {
-            Alert.ShowError(msg);
+            //Alert.ShowError(msg);
         }
     }
 }
