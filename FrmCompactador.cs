@@ -57,7 +57,7 @@ namespace Holtz_Compacta
             }
             catch (CompactorException ex)
             {
-                Alert.ShowError(ex.Message);
+                MessageBox.Show(ex.Message, ex.Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             BtnGerar.Enabled = true;
@@ -83,7 +83,7 @@ namespace Holtz_Compacta
             }
             catch (CompactorException ex)
             {
-                Alert.ShowError(ex.Message);
+                MessageBox.Show(ex.Message, ex.Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             BtnGerar.Enabled = true;
