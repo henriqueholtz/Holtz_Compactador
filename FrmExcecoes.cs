@@ -72,7 +72,7 @@ namespace Holtz_Compactador
 
         private void BtnGravar_Click(object sender, EventArgs e)
         {
-            LoadExcecoes.LoadAll();
+            LoadExcecoes.ClearAll();
             foreach (string item in listExtensoes.Items)
             {
                 LoadExcecoes.ParAddExtensaoN(item);

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web.Script.Serialization;
 
 namespace Holtz_Compactador
@@ -49,14 +50,29 @@ namespace Holtz_Compactador
             ExtensoesN.Clear();
             string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
             caminhoArquivo += @"\Extensoes.json";
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            string json = File.ReadAllText(caminhoArquivo);
-            dynamic resultado = serializer.DeserializeObject(json);
-            foreach (KeyValuePair<string, object> entry in resultado)
+            if (!File.Exists(caminhoArquivo))  //Caso não tenha o Config.json 
             {
-                var key = entry.Key;
-                var value = entry.Value as string;
-                ExtensoesN.Add(value);
+                using (FileStream fs = File.Create(caminhoArquivo)) { }
+            }
+            else //só carrega se já tinha o Extensoes.json
+            {
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                using (StreamReader sr = File.OpenText(caminhoArquivo))
+                {
+                    string json = sr.ReadToEnd();
+                    if (json.Length > 2) //evitar que o json esteja vazio
+                    {
+                        dynamic resultado = serializer.DeserializeObject(json);
+                        foreach (KeyValuePair<string, object> entry in resultado)
+                        {
+                            var key = entry.Key;
+                            var value = entry.Value as string;
+                            ExtensoesN.Add(value);
+                        }
+                    }
+                    sr.Close();
+                    sr.Dispose();
+                }
             }
         }
         private static void CarregaPastasN()
@@ -64,14 +80,29 @@ namespace Holtz_Compactador
             PastasN.Clear();
             string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
             caminhoArquivo += @"\Pastas.json";
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            string json = File.ReadAllText(caminhoArquivo);
-            dynamic resultado = serializer.DeserializeObject(json);
-            foreach (KeyValuePair<string, object> entry in resultado)
+            if (!File.Exists(caminhoArquivo))
             {
-                var key = entry.Key;
-                var value = entry.Value as string;
-                PastasN.Add(value);
+                using (FileStream fs = File.Create(caminhoArquivo)) { }
+            }
+            else //só carrega se já tinha o Pastas.json
+            {
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                using (StreamReader sr = File.OpenText(caminhoArquivo))
+                {
+                    string json = sr.ReadToEnd();
+                    if (json.Length > 2) //evitar que o json esteja vazio
+                    {
+                        dynamic resultado = serializer.DeserializeObject(json);
+                        foreach (KeyValuePair<string, object> entry in resultado)
+                        {
+                            var key = entry.Key;
+                            var value = entry.Value as string;
+                            PastasN.Add(value);
+                        }
+                    }
+                    sr.Close();
+                    sr.Dispose();
+                }
             }
         }
         public static void GravaJsonExtensoes() //grava no arquivo físico
@@ -91,7 +122,11 @@ namespace Holtz_Compactador
                 json += "\"ExtN" + count.ToString() + "\": " + itemSerializer;
             }
             json += "}";
-            File.WriteAllText(caminhoArquivo, json); //grava no arquivo físico
+
+            using (StreamWriter sr = new StreamWriter(caminhoArquivo))
+            {
+                sr.Write(json);
+            }
         }
 
         public static void GravaJsonPastas() //grava no arquivo físico
@@ -111,7 +146,11 @@ namespace Holtz_Compactador
                 json += "\"ExtN" + count.ToString() + "\": " + itemSerializer;
             }
             json += "}";
-            File.WriteAllText(caminhoArquivo, json); //grava no arquivo físico
+            using (StreamWriter sr = new StreamWriter(caminhoArquivo))
+            {
+                sr.Write(json);
+            }
+           
         }
     }
 }

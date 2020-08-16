@@ -86,7 +86,7 @@ namespace Holtz_Compacta
             caminhoArquivo += @"\Config.json";
             if (!File.Exists(caminhoArquivo))  //Caso não tenha o Config.json 
             {
-                File.Create(caminhoArquivo);
+                using (FileStream fs = File.Create(caminhoArquivo)) { }
             }
             //serialize vai por aspas duplas :   "valor"
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -102,7 +102,10 @@ namespace Holtz_Compacta
                 "\"NomeArquivo\": " + ParNomeArquivo +
                 "}";
 
-            File.WriteAllText(caminhoArquivo, json); //Grava no arquivo físico
+            using (StreamWriter sr = new StreamWriter(caminhoArquivo))
+            {
+                sr.Write(json);
+            }
         }
     }
 }
