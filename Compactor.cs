@@ -34,16 +34,13 @@ namespace Holtz_Compactador
                 if (!Directory.Exists(targetFolder))  { Directory.CreateDirectory(targetFolder); }
                 GetExtensionsAndFoldersExceptions();
 
-                LoadExcecoes.LimparExtensoesN();
-                LoadExcecoes.LimparPastasN();
-                LoadExcecoes.CarregaExtensoesN();
-                LoadExcecoes.CarregaPastasN();
+                LoadExcecoes.Start();
 
                 // Structure Folders and Files
                 IEnumerable<string> folders = Directory.EnumerateDirectories(sourceFolder, "*.*", SearchOption.AllDirectories);
                 IEnumerable<string> files = Directory.EnumerateFiles(sourceFolder, "*.*", SearchOption.AllDirectories);
                 List<string> ListFiles = files.ToList(); //Para conseguir excluir
-                //ListFiles.Count =816!!!!
+                
                 //Excluindo conforme exceções de PASTAS
                 foreach (string folder in folders)
                 {
@@ -117,10 +114,10 @@ namespace Holtz_Compactador
             {
                 MessageBox.Show(e.Message);
             }
-            //catch (InvalidOperationException e) //capturar exceções mais genéricas
-            //{
-            //    MessageBox.Show(e.Message);
-            //}
+            catch (Exception e) //capturar exceções mais genéricas
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private static void GetExtensionsAndFoldersExceptions()

@@ -45,27 +45,37 @@ namespace Holtz_Compacta
         {
             string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
             caminhoArquivo += @"\Config.json";
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            string json = File.ReadAllText(caminhoArquivo);
-            dynamic resultado = serializer.DeserializeObject(json);
-            foreach (KeyValuePair<string, object> entry in resultado)
+            if (!File.Exists(caminhoArquivo))  //Caso não tenha o Config.json 
+            { 
+                File.Create(caminhoArquivo); 
+            }
+            else //só carrega se tiver o arquivo
             {
-                var key = entry.Key;
-                var value = entry.Value as string;
-                switch (key)
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                string json = File.ReadAllText(caminhoArquivo);
+                if (json.Length > 2) //Garantir que o Config.Json não esteja vazio 
                 {
-                    case "CaminhoOrigem":
-                        CaminhoOrigem = String.Format("{1}", key, value);
-                        break;
-                    case "CaminhoDestino":
-                        CaminhoDestino = String.Format("{1}", key, value);
-                        break;
-                    case "NomeArquivo":
-                        NomeArquivo = String.Format("{1}", key, value);
-                        break;
-                    case "Tipo":
-                        Tipo = String.Format("{1}", key, value);
-                        break;
+                    dynamic resultado = serializer.DeserializeObject(json);
+                    foreach (KeyValuePair<string, object> entry in resultado)
+                    {
+                        var key = entry.Key;
+                        var value = entry.Value as string;
+                        switch (key)
+                        {
+                            case "CaminhoOrigem":
+                                CaminhoOrigem = String.Format("{1}", key, value);
+                                break;
+                            case "CaminhoDestino":
+                                CaminhoDestino = String.Format("{1}", key, value);
+                                break;
+                            case "NomeArquivo":
+                                NomeArquivo = String.Format("{1}", key, value);
+                                break;
+                            case "Tipo":
+                                Tipo = String.Format("{1}", key, value);
+                                break;
+                        }
+                    }
                 }
             }
         }
@@ -74,7 +84,10 @@ namespace Holtz_Compacta
         {
             string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
             caminhoArquivo += @"\Config.json";
-
+            if (!File.Exists(caminhoArquivo))  //Caso não tenha o Config.json 
+            {
+                File.Create(caminhoArquivo);
+            }
             //serialize vai por aspas duplas :   "valor"
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ParCaminhoOrigem = serializer.Serialize(CaminhoOrigem);

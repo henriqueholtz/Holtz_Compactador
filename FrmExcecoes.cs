@@ -24,8 +24,7 @@ namespace Holtz_Compactador
         {
             BtnRemoverExtensao.Enabled = false;
             BtnRemoverPasta.Enabled = false;
-            LoadExcecoes.CarregaExtensoesN();
-            LoadExcecoes.CarregaPastasN();
+            LoadExcecoes.Start();
             //List<string> extensoesN = new List<string>();
             extensoesN = LoadExcecoes.ParExtensoesN;
             foreach (var item in extensoesN)
@@ -73,8 +72,7 @@ namespace Holtz_Compactador
 
         private void BtnGravar_Click(object sender, EventArgs e)
         {
-            LoadExcecoes.LimparExtensoesN(); //Clear
-            LoadExcecoes.LimparPastasN(); //Clear
+            LoadExcecoes.LoadAll();
             foreach (string item in listExtensoes.Items)
             {
                 LoadExcecoes.ParAddExtensaoN(item);

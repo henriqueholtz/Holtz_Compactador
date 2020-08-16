@@ -31,4 +31,3 @@ D:\Visual Studio\GitHub\Holtz_Compactador\obj\Debug\Holtz_Compactador.csproj.Cor
 D:\Visual Studio\GitHub\Holtz_Compactador\obj\Debug\Holtz_Compactador.csproj.CopyComplete
 D:\Visual Studio\GitHub\Holtz_Compactador\obj\Debug\Holtz_Compactador.exe
 D:\Visual Studio\GitHub\Holtz_Compactador\obj\Debug\Holtz_Compactador.pdb
-D:\Visual Studio\GitHub\Holtz_Compactador\obj\Debug\Holtz_Compactador.csprojAssemblyReference.cache

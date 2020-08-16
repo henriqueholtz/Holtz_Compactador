@@ -9,13 +9,15 @@ namespace Holtz_Compactador
         private static List<string> ExtensoesN = new List<string>();
         private static List<string> PastasN = new List<string>();
         private static string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-        public static void LimparExtensoesN()
+        public static void ClearAll()
         {
             ExtensoesN.Clear();
-        }
-        public static void LimparPastasN()
-        {
             PastasN.Clear();
+        }
+        public static void LoadAll()
+        {
+            CarregaExtensoesN();
+            CarregaPastasN();
         }
         public static List<string> ParExtensoesN
         {
@@ -35,7 +37,14 @@ namespace Holtz_Compactador
             get { return PastasN; }
             set { PastasN = value; }
         }
-        public static void CarregaExtensoesN()
+
+        public static void Start()
+        {
+            ClearAll();
+            CarregaExtensoesN();
+            CarregaPastasN();
+        }
+        private static void CarregaExtensoesN()
         {
             ExtensoesN.Clear();
             string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
@@ -50,7 +59,7 @@ namespace Holtz_Compactador
                 ExtensoesN.Add(value);
             }
         }
-        public static void CarregaPastasN()
+        private static void CarregaPastasN()
         {
             PastasN.Clear();
             string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
