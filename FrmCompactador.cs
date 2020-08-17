@@ -190,43 +190,59 @@ namespace Holtz_Compacta
 
         private void limparConfiguraçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-            string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
-            caminhoArquivo += @"\Config.json";
-            using (StreamWriter sr = new StreamWriter(caminhoArquivo))
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir as configurações? Essa opção não pode ser revertida.", "Excluir Configurações", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                sr.Write("");
+                string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+                string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
+                caminhoArquivo += @"\Config.json";
+                using (StreamWriter sr = new StreamWriter(caminhoArquivo))
+                {
+                    sr.Write("");
+                }
+                LoadConfig.CarregaJson();
+                comboTipo.SelectedItem = null;
+                TxtCaminhoOrigem.Text = LoadConfig.ParCaminhoOrigem;
+                txtCaminhoDestino.Text = LoadConfig.ParCaminhoDestino;
+                txtNomeArquivo.Text = LoadConfig.ParNomeArquivo;
+                checkSalvarOrigem.Checked = true;
+                checkSalvarDestino.Checked = true;
+                checkSalvarTipo.Checked = true;
+                checkSalvarNomeArquivo.Checked = true;
+                Alert.ShowSucess("Todas Exceções foram excluídas.");
             }
-            LoadConfig.CarregaJson();
-            comboTipo.SelectedItem = null;
-            TxtCaminhoOrigem.Text = LoadConfig.ParCaminhoOrigem;
-            txtCaminhoDestino.Text = LoadConfig.ParCaminhoDestino;
-            txtNomeArquivo.Text = LoadConfig.ParNomeArquivo;
-            checkSalvarOrigem.Checked = true;
-            checkSalvarDestino.Checked = true;
-            checkSalvarTipo.Checked = true;
-            checkSalvarNomeArquivo.Checked = true;
-            Alert.ShowSucess("Todas Configurações foram excluídas.");
+            else
+            {
+                Alert.ShowInformation("Operação Cancelada. Nenhuma Exceção foi removida.");
+            }
         }
 
         private void limparExceçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-            string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
-            string arquivo = caminhoArquivo + @"\Pastas.json";
-            using (StreamWriter sr = new StreamWriter(arquivo))
+            DialogResult result = MessageBox.Show("Tem certeza que deseja excluir as configurações? Essa opção não pode ser revertida.", "Excluir Configurações", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                sr.Write("");
-            }
+                string CaminhoArquivoExt = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+                string caminhoArquivo = Directory.GetParent(Directory.GetParent(CaminhoArquivoExt).FullName).FullName;
+                string arquivo = caminhoArquivo + @"\Pastas.json";
+                using (StreamWriter sr = new StreamWriter(arquivo))
+                {
+                    sr.Write("");
+                }
 
-            arquivo = String.Empty;
-            arquivo = caminhoArquivo + @"\Extensoes.json";
-            using (StreamWriter sr = new StreamWriter(arquivo))
-            {
-                sr.Write("");
+                arquivo = String.Empty;
+                arquivo = caminhoArquivo + @"\Extensoes.json";
+                using (StreamWriter sr = new StreamWriter(arquivo))
+                {
+                    sr.Write("");
+                }
+                LoadExcecoes.ClearAll();
+                Alert.ShowSucess("Todas Exceções foram excluídas.");
             }
-            LoadExcecoes.ClearAll();
-            Alert.ShowSucess("Todas Exceções foram excluídas.");
+            else
+            {
+                Alert.ShowInformation("Operação Cancelada. Nenhuma configuração foi removida.");
+            }
         }
     }
 }
