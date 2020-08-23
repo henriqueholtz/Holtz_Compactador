@@ -90,6 +90,14 @@ namespace Holtz_Compactador
                         {
                             directoryPathInArqchive = "";
                         }
+                        else
+                        { //significa que tem folder, precisa deixar só a pasta, e não o arquivo junto
+                            string[] v = file.Split(separator);
+                            string s = v.LastOrDefault(); //aqui pega o nome do arquivo "exemplo.dll"
+                            directoryPathInArqchive = directoryPathInArqchive.Substring(0, directoryPathInArqchive.Length - s.Length);
+
+                            //TESTE
+                        }
                         FileCompacted.AddItem(file, directoryPathInArqchive);
                     }
 
